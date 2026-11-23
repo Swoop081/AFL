@@ -16,9 +16,14 @@ jobs:
         run: |
           mkdir -p data/raw
           UA="Mozilla/5.0 (compatible; afl-gm-data/1.0)"
-          for page in stats/2026a stats/2026 stats/2026t seasons/2026 stats/2025a; do
+          for page in stats/2026a stats/2026 stats/2026t seas/2026 stats/2025a; do
             name=$(echo "$page" | tr '/' '_')
             curl -sS -L -A "$UA" --retry 3 -o "data/raw/${name}.html" "https://afltables.com/afl/${page}.html"
+            sleep 2
+          done
+          for url in https://www.footywire.com/afl/footy/ft_players https://www.zerohanger.com/afl/players/ https://www.footywire.com/afl/footy/ft_player_rankings?year=2026 https://afltables.com/afl/stats/biglist.html; do
+            name=$(echo "$url" | sed 's#https://##; s#[/?=.]#_#g')
+            curl -sS -L -A "$UA" --retry 2 -o "data/raw/cand_${name}.html" -w "%{http_code} $url\n" "$url"
             sleep 2
           done
           ls -la data/raw
