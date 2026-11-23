@@ -73,7 +73,7 @@ h1,h2,h3,p{margin:0}
 .mc.back .in{background:repeating-linear-gradient(45deg,#14161d 0 6px,#1b1e27 6px 12px)}
 .mc.back .in::after{content:"?";position:absolute;inset:0;display:grid;place-items:center;font-size:calc(var(--w,90px)*.5);font-weight:900;color:var(--blue);opacity:.8}
 .mc.back{--c1:#8ec5ff;--c2:#1b4f8f}
-.mc.back .ph,.mc.back .nm,.mc.back .ovr,.mc.back .pos{visibility:hidden}
+.mc.back .in>*{visibility:hidden}
 .mc.flip{animation:flip .55s ease-out}
 @keyframes flip{0%{transform:rotateY(90deg) scale(.9)}100%{transform:none}}
 .sv{position:absolute;left:0;right:0;bottom:calc(var(--w,90px)*.2);text-align:center;line-height:1;text-shadow:0 2px 6px #000}
@@ -103,6 +103,8 @@ h1,h2,h3,p{margin:0}
 .pill{background:rgba(255,255,255,.1);border-radius:99px;padding:7px 14px;font-size:13px;font-weight:800;letter-spacing:.05em}
 .tops{display:flex;gap:8px;justify-content:center}
 .hide{display:none!important}
+.meter{position:relative;height:34px;width:92%;margin:8px auto 0;border-radius:17px;background:linear-gradient(90deg,#4a1f1f,#4a4a1f,#1f4a2b);border:2px solid rgba(255,255,255,.2)}
+.meter i{position:absolute;top:-6px;bottom:-6px;width:8px;border-radius:4px;background:var(--gold);box-shadow:0 0 12px var(--gold);left:0;transform:translateX(-50%)}
 </style>
 </head>
 <body>
@@ -189,42 +191,52 @@ function shoot(team,gap,shift,side){var mean=Math.max(.8,6.2*(1+.8*gap))*Math.ex
 function scoreboard(){$("sMe").textContent=G.me.g+"."+G.me.b;$("sMeT").textContent=pts(G.me);$("sCpu").textContent=G.cpu.g+"."+G.cpu.b;$("sCpuT").textContent=pts(G.cpu);$("qb").textContent=G.q>=4&&G.done?"FT":"Q"+Math.max(1,G.q)}
 function buttons(label){var b=$("go"),bar=b.parentNode;if(label===null){bar.classList.add("hide");return}bar.classList.remove("hide");b.textContent=label;b.disabled=false}
 function frame(){$("stage").innerHTML='<div class="ttl" id="ttl"></div><div class="opp" id="opp"></div><div><div class="pips" id="pips"></div><div class="ban" id="ban"></div></div><div class="mine" id="mine"></div>'}
-function pips(r){$("pips").innerHTML=r.map(function(x){return'<i class="'+(x||"")+'"></i>'}).join("")}
+function pips(r,n){n=n||3;var a=r.slice();while(a.length<n)a.push("");$("pips").innerHTML=a.map(function(x){return'<i class="'+(x||"")+'"></i>'}).join("")}
 function banner(h,s){$("ban").innerHTML=h+(s?'<small>'+s+'</small>':"")}
+function fin(c){var p=Math.max(.1,Math.min(.3,.15+.10*(c.s[S["Scoring"]]-50)/50));return Math.random()<p}
 /* ---------- a round: you pick a card, they pick a card, values compare ---------- */
-function runRound(cfg){   // cfg: {title,k1(label),k2(label),myOpts,cpuOpts,used,r,res,cb,kind}
- var myK=cfg.myK,cpK=cfg.cpK,n=cfg.myOpts.length,w=n===3?112:150;
- $("ttl").textContent=cfg.title;pips(cfg.res.map(function(x){return x.w}).concat(["","",""]).slice(0,3));
- banner(cfg.prompt,"Round "+(cfg.r+1)+" of 3");
+function runRound(cfg){
+ var k=cfg.k,n=cfg.myOpts.length,w=n===3?112:150,N=cfg.N;
+ $("ttl").textContent=cfg.title;pips(cfg.res.map(function(x){return x.w}),N);
+ banner(cfg.prompt,"Round "+(cfg.r+1)+" of "+N);
  $("opp").innerHTML=card(cfg.cpuOpts[0],176,"",{cls:"back"});
- $("mine").innerHTML=cfg.myOpts.map(function(c,i){var u=cfg.used&&cfg.used.indexOf(c)>=0;return'<button data-i="'+i+'" class="'+(u?"used":"")+'">'+card(c,w,"",{sv:[myK,sv(c,myK)]})+'</button>'}).join("");
+ $("mine").innerHTML=cfg.myOpts.map(function(c,i){return'<button data-i="'+i+'">'+card(c,w,"",{sv:[k,sv(c,k)]})+'</button>'}).join("");
  [].forEach.call($("mine").querySelectorAll("button"),function(b){b.onclick=function(){
   var c=cfg.myOpts[+b.dataset.i];[].forEach.call($("mine").querySelectorAll("button"),function(x){x.classList.add("lock")});
-  var avail=cfg.cpuAvail||cfg.cpuOpts,oc=cpuPick(avail,cpK);var mv=sv(c,myK),ov=sv(oc,cpK),win=mv>ov?"m":mv<ov?"c":(Math.random()<.5?"m":"c");
-  $("opp").innerHTML=card(oc,176,"",{sv:[cpK,ov],c:true,cls:"flip"+(win==="c"?" cwin":"")});
+  var oc=cpuPick(cfg.cpuOpts,k),mv=sv(c,k),ov=sv(oc,k),win=mv>ov?"m":mv<ov?"c":(Math.random()<.5?"m":"c");
+  $("opp").innerHTML=card(oc,176,"",{sv:[k,ov],c:true,cls:"flip"+(win==="c"?" cwin":"")});
   b.querySelector(".mc").classList.add(win==="m"?"win":"lose");
   [].forEach.call($("mine").querySelectorAll("button"),function(x){if(x!==b)x.style.opacity=".35"});
-  banner(win==="m"?"YOU WIN IT":"THEY WIN IT",mv+"  v  "+ov);cfg.res.push({w:win,x:nx(mv,ov),c:c,oc:oc});pips(cfg.res.map(function(x){return x.w}).concat(["","",""]).slice(0,3));
-  if(cfg.used)cfg.used.push(c);if(cfg.cpuAvail)cfg.cpuAvail.splice(cfg.cpuAvail.indexOf(oc),1);
-  later(1400,cfg.cb)}})}
+  var wc=win==="m"?c:oc,f=fin(wc);if(f)G.Q.fin.push({side:win==="m"?"me":"cpu",c:wc,goal:true,fin:true});
+  banner((win==="m"?"YOU WIN IT":"THEY WIN IT")+(f?" · ⚡ FINISHER!":""),mv+"  v  "+ov);cfg.res.push({w:win,x:nx(mv,ov)});pips(cfg.res.map(function(x){return x.w}),N);
+  later(f?1900:1400,cfg.cb)}})}
 /* ---------- quarter flow ---------- */
-function startQuarter(){G.q++;G.done=false;scoreboard();frame();buttons(null);
- var Q=G.Q={stats:pick3(MIDPOOL),pairs:pick3(PAIRS),mid:[],play:[],usedM:[],cpuM:mids(cpu).slice()};
- midRound(0)}
-function midRound(r){var Q=G.Q;if(r>=3){return midDone()}
- runRound({title:"QUARTER "+G.q+" · CENTRE BOUNCE",prompt:"PICK A MID FOR <span style=\"color:var(--gold)\">"+Q.stats[r].toUpperCase()+"</span>",myK:Q.stats[r],cpK:Q.stats[r],myOpts:mids(me),cpuOpts:mids(cpu),
-  used:Q.usedM,cpuAvail:Q.cpuM,r:r,res:Q.mid,cb:function(){midRound(r+1)}})}
-function midDone(){var Q=G.Q;Q.meClr=Q.mid.filter(function(x){return x.w==="m"}).length>=2;pips(Q.mid.map(function(x){return x.w}));
- $("opp").innerHTML="";$("mine").innerHTML="";banner(Q.meClr?"YOU WIN THE CLEARANCE":"CHALLENGERS WIN THE CLEARANCE",Q.meClr?"Your forwards attack":"Your backs must defend");buttons("NEXT PLAY ▶");G.phase="play"}
-function playRound(r){var Q=G.Q;if(r>=3){return playDone()}var pr=Q.pairs[r],atk=Q.meClr;
- var myK=atk?pr[0]:pr[1],cpK=atk?pr[1]:pr[0];
- runRound({title:atk?"YOUR FORWARDS ATTACK":"YOUR BACKS DEFEND",prompt:(atk?"PICK A FORWARD FOR ":"PICK A BACK FOR ")+"<span style=\"color:var(--gold)\">"+myK.toUpperCase()+"</span>",myK:myK,cpK:cpK,
-  myOpts:atk?fwds(me):backs(me),cpuOpts:atk?backs(cpu):fwds(cpu),r:r,res:Q.play,cb:function(){playRound(r+1)}})}
-function playDone(){var Q=G.Q;
- var gMid=Q.mid.reduce(function(s,r){return s+r.x},0)/3,gPlay=Q.play.reduce(function(s,r){return s+r.x},0)/3,pw=Q.play.filter(function(x){return x.w==="m"}).length>=2;
- var g=.4*gMid+.6*gPlay+(Q.meClr?.1:-.1)+(pw?.15:-.15);
+function startQuarter(){G.q++;G.done=false;scoreboard();G.Q={play:[],fin:[],ruck:null};ruckRound()}
+function ruckRound(){var Q=G.Q,mr=me[3],cr=cpu[3];
+ $("stage").innerHTML='<div class="ttl">QUARTER '+G.q+' · RUCK CONTEST</div><div class="opp" id="opp"></div><div style="width:100%"><div class="ban" id="ban"></div><div class="meter"><i id="mk"></i></div></div><div class="mine" id="mine"></div>';
+ $("opp").innerHTML=card(cr,176,"",{cls:"back"});$("mine").innerHTML=card(mr,150);
+ banner("TAP TO STOP THE METER","Higher wins the ball");buttons("TAP!");G.phase="tap";
+ var P=700+(mr.o-40)*14,t0=performance.now()-Math.random()*P,t=tok;G.mv=0;
+ (function step(){if(G.phase!=="tap"||t!==tok)return;var ph=((performance.now()-t0)%P)/P,v=ph<.5?ph*2:(1-ph)*2;G.mv=v*100;var m=$("mk");if(m)m.style.left=G.mv+"%";requestAnimationFrame(step)})()}
+function stopMeter(){G.phase="";var Q=G.Q,mv=Math.round(G.mv),cr=cpu[3],ov=Math.round(Math.max(15,Math.min(99,35+(cr.o-40)*.55+gauss()*14)));
+ var win=mv>ov?"m":mv<ov?"c":(Math.random()<.5?"m":"c");
+ $("opp").innerHTML=card(cr,176,"",{sv:["RUCK",ov],c:true,cls:"flip"+(win==="c"?" cwin":"")});
+ buttons(null);Q.ruck={x:nx(mv+20,ov+20)};Q.meClr=win==="m";
+ banner(Q.meClr?"YOU WIN THE BALL":"THEY WIN THE BALL",mv+"  v  "+ov+"<br>"+(Q.meClr?"Your forwards attack":"Your backs must defend"));
+ later(1900,midDone)}
+function midDone(){$("opp").innerHTML="";$("mine").innerHTML="";buttons("NEXT PLAY ▶");G.phase="play"}
+function playRound(r){var Q=G.Q;if(r>=4){return playDone()}
+ if(!Q.stats){Q.stats=["Kicking","Handball","Marking","Tackling"].sort(function(){return Math.random()-.5})}
+ var k=Q.stats[r],atk=Q.meClr,mid=(k==="Handball"||k==="Tackling"),my,op,t,pr;
+ if(mid){my=mids(me);op=mids(cpu);t="MIDFIELD BATTLE";pr="PICK A MID FOR "}
+ else if(atk){my=fwds(me);op=backs(cpu);t="YOUR FORWARDS ATTACK";pr="PICK A FORWARD FOR "}
+ else{my=backs(me);op=fwds(cpu);t="YOUR BACKS DEFEND";pr="PICK A BACK FOR "}
+ runRound({title:t,prompt:pr+'<span style="color:var(--gold)">'+k.toUpperCase()+'</span>',k:k,myOpts:my,cpuOpts:op,r:r,N:4,res:Q.play,cb:function(){playRound(r+1)}})}
+function playDone(){var Q=G.Q,wins=Q.play.filter(function(x){return x.w==="m"}).length;
+ var gPlay=Q.play.reduce(function(s,r){return s+r.x},0)/4;
+ var g=.3*Q.ruck.x+.6*gPlay+(Q.meClr?.1:-.1)+(wins-2)*.1;
  if(G.q===4){var m=pts(G.me)-pts(G.cpu);if(m<-30)g+=.25;else if(m>30)g-=.15}
- var sm=gauss()*.07,sc=gauss()*.07,ev=shoot(me,g,sm,"me").concat(shoot(cpu,-g,sc,"cpu"));
+ var sm=gauss()*.07,sc=gauss()*.07,ev=shoot(me,g,sm,"me").concat(shoot(cpu,-g,sc,"cpu"),Q.fin);
  for(var i=ev.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=ev[i];ev[i]=ev[j];ev[j]=t}
  Q.ev=ev;Q.me={g:0,b:0};Q.cpu={g:0,b:0};Q.i=0;scoring()}
 function apply(e){var Qs=G.Q[e.side],t=G[e.side],s=G.scorers[e.side];if(e.goal){Qs.g++;t.g++}else{Qs.b++;t.b++}
@@ -233,20 +245,21 @@ function scoring(){var Q=G.Q;$("stage").innerHTML='<div class="ttl">QUARTER '+G.
  buttons("SKIP ▶");G.phase="skip";tick()}
 function tick(){var Q=G.Q;if(G.phase!=="skip")return;if(Q.i>=Q.ev.length){return summary()}
  var e=Q.ev[Q.i++];apply(e);var me_=e.side==="me";
- $("pop").innerHTML=card(e.c,170,"",{cls:"flip"})+'<div class="tx '+(e.goal?(me_?"g":"cg"):"b")+'">'+(e.goal?"GOAL!":"BEHIND")+'</div>';
+ $("pop").innerHTML=card(e.c,170,"",{cls:"flip"})+'<div class="tx '+(e.goal?(me_?"g":"cg"):"b")+'">'+(e.goal?(e.fin?"FINISHER!":"GOAL!"):"BEHIND")+'</div>';
  var l=document.createElement("div");l.className=me_?"m":"c";l.innerHTML='<span>'+e.c.last+(e.goal?' goal':' behind')+'</span><b>'+pts(G.me)+' – '+pts(G.cpu)+'</b>';var lg=$("log");lg.insertBefore(l,lg.firstChild);while(lg.children.length>3)lg.removeChild(lg.lastChild);
  later(560,tick)}
 function summary(){var Q=G.Q;G.phase="next";var last=G.q>=4;
  $("stage").innerHTML='<div class="ttl">QUARTER '+G.q+' RESULT</div><div class="qs"><div class="l m"><span>YOUR TEAM</span><b>'+Q.me.g+'.'+Q.me.b+' ('+pts(Q.me)+')</b></div><div class="l c"><span>CHALLENGERS</span><b>'+Q.cpu.g+'.'+Q.cpu.b+' ('+pts(Q.cpu)+')</b></div></div><div class="big">'+pts(G.me)+' – '+pts(G.cpu)+'</div><div class="ttl">'+(pts(G.me)>pts(G.cpu)?"YOU LEAD":pts(G.me)<pts(G.cpu)?"YOU TRAIL":"ALL SQUARE")+' AFTER Q'+G.q+'</div><div></div>';
  buttons(last?"FULL TIME ▶":"QUARTER "+(G.q+1)+" ▶")}
 $("go").onclick=function(){
- if(G.phase==="play"){G.phase="";frame();buttons(null);playRound(0)}
+ if(G.phase==="tap"){stopMeter()}
+ else if(G.phase==="play"){G.phase="";frame();buttons(null);playRound(0)}
  else if(G.phase==="skip"){var Q=G.Q;G.phase="";while(Q.i<Q.ev.length)apply(Q.ev[Q.i++]);summary()}
  else if(G.phase==="next"){if(G.q>=4){G.done=true;scoreboard();finish()}else startQuarter()}
  else if(G.phase==="start"){startQuarter()}};
 function startMatch(){if(me.filter(Boolean).length<7)me=autoPick(POOL);
  cpu=autoPick(POOL.filter(function(c){return me.indexOf(c)<0}));newGame();scoreboard();
- $("stage").innerHTML='<div class="ttl">CHALLENGERS</div><div class="opp"><div class="mine" style="gap:6px">'+mids(cpu).map(function(c){return card(c,104)}).join("")+'</div></div><div class="ban">4 QUARTERS<small>Win the clearance, then beat their backs. You pick the cards.</small></div><div class="mine" style="gap:6px">'+mids(me).map(function(c){return card(c,104)}).join("")+'</div>';
+ $("stage").innerHTML='<div class="ttl">CHALLENGERS</div><div class="opp"><div class="mine" style="gap:6px">'+mids(cpu).map(function(c){return card(c,104)}).join("")+'</div></div><div class="ban">4 QUARTERS<small>Tap the ruck meter to win the ball, then pick your cards.</small></div><div class="mine" style="gap:6px">'+mids(me).map(function(c){return card(c,104)}).join("")+'</div>';
  G.phase="start";buttons("CENTRE BOUNCE");show("sMatch")}
 $("play").onclick=startMatch;
 function finish(){var a=pts(G.me),b=pts(G.cpu),res=a>b?"WIN":a<b?"LOSS":"DRAW",st=0;
