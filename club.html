@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0b0f14">
+<title>AFL Career</title>
+<style>
+  :root { --p:#0b0f14; --s:#222; --a:#fff; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin:0; height:100%; overflow:hidden; background:#0b0f14; color:#fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; touch-action: pan-x; }
+  #app { height:100dvh; display:flex; flex-direction:column;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+    background: radial-gradient(130% 75% at 50% 30%, color-mix(in srgb, var(--p) 78%, #0b0f14) 0%, #0b0f14 82%);
+    transition: background .35s; }
+  header { padding: 14px 18px 0; display:flex; justify-content:space-between; align-items:baseline; }
+  header h1 { margin:0; font-size:15px; letter-spacing:.14em; text-transform:uppercase; opacity:.75; font-weight:700; }
+  #count { font-size:13px; opacity:.6; font-variant-numeric: tabular-nums; }
+
+  #track { flex:1; min-height:0; display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+    scrollbar-width:none; overscroll-behavior-x:contain; }
+  #track::-webkit-scrollbar { display:none; }
+  .slide { flex:0 0 100%; scroll-snap-align:center; scroll-snap-stop:always; display:flex;
+    flex-direction:column; align-items:center; justify-content:center; padding: 0 22px; text-align:center; }
+
+  .crest { width:min(52vw, 30dvh); aspect-ratio:1; position:relative; display:grid; place-items:center;
+    filter: drop-shadow(0 12px 28px rgba(0,0,0,.55)); }
+  .crest img { width:100%; height:100%; object-fit:contain; }
+  .crest .fallback { width:100%; height:100%; border-radius:50%; display:grid; place-items:center;
+    font-weight:900; font-size:min(16vw, 9dvh); letter-spacing:.02em;
+    border: 5px solid var(--s); }
+
+  .name { margin:18px 0 0; font-size:clamp(28px, 8vw, 38px); font-weight:800; line-height:1.05; }
+  .nick { margin:4px 0 0; font-size:15px; opacity:.7; letter-spacing:.1em; text-transform:uppercase; }
+  .rec { margin:14px 0 0; display:flex; gap:8px; align-items:center; justify-content:center; font-size:14px; }
+  .pill { padding:5px 11px; border-radius:99px; background:rgba(255,255,255,.12); font-weight:600; }
+  .stars { margin:14px 0 0; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  .stars span { font-size:13px; padding:6px 10px; border-radius:10px; background:rgba(0,0,0,.28); }
+
+  #dots { display:flex; justify-content:center; gap:5px; padding: 6px 0 10px; }
+  #dots i { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.25); transition:.2s; }
+  #dots i.on { background:#fff; transform:scale(1.35); }
+
+  /* Thumb zone: everything you press lives at the bottom. */
+  footer { display:grid; grid-template-columns: 76px 1fr 76px; gap:12px; padding: 4px 16px 18px; align-items:center; }
+  footer button { height:64px; border:0; border-radius:20px; font-weight:800; color:#fff; cursor:pointer;
+    background:rgba(255,255,255,.14); font-size:28px; transition: transform .08s; }
+  footer button:active { transform: scale(.94); }
+  #pick { font-size:19px; letter-spacing:.04em; background: var(--p); color: var(--a);
+    border: 2px solid rgba(255,255,255,.35); box-shadow: 0 6px 22px rgba(0,0,0,.45); }
+  #pick.rich { background: var(--a); color: var(--p); }
+
+  #done { position:fixed; inset:0; display:none; flex-direction:column; align-items:center; justify-content:center;
+    gap:14px; background: var(--p); text-align:center; padding:24px; }
+  #done.show { display:flex; }
+  #done h2 { margin:0; font-size:30px; }
+  #done p { margin:0; opacity:.8; }
+  #done button { margin-top:18px; height:56px; padding:0 28px; border-radius:18px; border:2px solid rgba(255,255,255,.4);
+    background:transparent; color:#fff; font-size:17px; font-weight:700; }
+</style>
+</head>
+<body>
+<div id="app">
+  <header><h1>Choose your club</h1><span id="count"></span></header>
+  <div id="track"></div>
+  <div id="dots"></div>
+  <footer>
+    <button id="prev" aria-label="Previous club">‹</button>
+    <button id="pick">PICK CLUB</button>
+    <button id="next" aria-label="Next club">›</button>
+  </footer>
+</div>
+<div id="done">
+  <div class="crest" id="doneCrest"></div>
+  <h2 id="doneTitle"></h2>
+  <p>Your career starts here.</p>
+  <button id="back">Change club</button>
+</div>
+
+<script src="teams.js"></script>
+<script>
+(function () {
+  var T = window.TEAMS, track = document.getElementById('track'), dots = document.getElementById('dots');
+  var app = document.getElementById('app'), idx = 0, ticking = false, lockTimer = null, locked = false;
+
+  function crest(t) {
+    var d = document.createElement('div'); d.className = 'crest';
+    var img = new Image(); img.alt = t.name + ' logo';
+    img.src = 'assets/logos/' + t.code + '.png';
+    img.onerror = function () {
+      var f = document.createElement('div'); f.className = 'fallback';
+      f.style.background = t.primary; f.style.color = t.accent; f.textContent = t.code;
+      img.replaceWith(f);
+    };
+    d.appendChild(img); return d;
+  }
+  function ord(n) { var s = ['th','st','nd','rd'], v = n % 100; return n + (s[(v-20)%10] || s[v] || s[0]); }
+
+  T.forEach(function (t, i) {
+    var s = document.createElement('section'); s.className = 'slide';
+    s.appendChild(crest(t));
+    var h = document.createElement('h2'); h.className = 'name'; h.textContent = t.name; s.appendChild(h);
+    var n = document.createElement('div'); n.className = 'nick'; n.textContent = t.nick; s.appendChild(n);
+    var r = document.createElement('div'); r.className = 'rec';
+    r.innerHTML = '<span class="pill">' + t.w + '-' + t.l + (t.d ? '-' + t.d : '') + '</span><span class="pill">' + ord(t.rank) + ' in 2026</span>';
+    s.appendChild(r);
+    var st = document.createElement('div'); st.className = 'stars';
+    st.innerHTML = t.stars.map(function (x) { return '<span>' + x + '</span>'; }).join('');
+    s.appendChild(st);
+    track.appendChild(s);
+    var d = document.createElement('i'); dots.appendChild(d);
+  });
+
+  function paint() {
+    var t = T[idx];
+    app.style.setProperty('--p', t.primary); app.style.setProperty('--s', t.secondary); app.style.setProperty('--a', t.accent);
+    document.getElementById('count').textContent = (idx + 1) + ' / ' + T.length;
+    [].forEach.call(dots.children, function (d, i) { d.className = i === idx ? 'on' : ''; });
+    var pick = document.getElementById('pick');
+    pick.textContent = 'PICK ' + t.nick.toUpperCase();
+    var lum = parseInt(t.primary.slice(1,3),16)*.3 + parseInt(t.primary.slice(3,5),16)*.6 + parseInt(t.primary.slice(5,7),16)*.1;
+    pick.className = lum > 150 ? 'rich' : '';
+    if (lum > 150) pick.style.setProperty('--a', '#111'); else pick.style.removeProperty('--a');
+  }
+  function go(i, smooth) {
+    var wrapped = i < 0 || i >= T.length;
+    idx = (i + T.length) % T.length;
+    if (wrapped) smooth = false;
+    locked = true; clearTimeout(lockTimer); lockTimer = setTimeout(function () { locked = false; }, 500);
+    track.scrollTo({ left: idx * track.clientWidth, behavior: smooth === false ? 'auto' : 'smooth' });
+    paint();
+  }
+  track.addEventListener('scroll', function () {
+    if (ticking || locked) return; ticking = true;
+    requestAnimationFrame(function () {
+      var i = Math.round(track.scrollLeft / track.clientWidth);
+      if (i !== idx && i >= 0 && i < T.length) { idx = i; paint(); }
+      ticking = false;
+    });
+  }, { passive: true });
+
+  document.getElementById('prev').onclick = function () { go(idx - 1); };
+  document.getElementById('next').onclick = function () { go(idx + 1); };
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') go(idx - 1); if (e.key === 'ArrowRight') go(idx + 1);
+  });
+
+  document.getElementById('pick').onclick = function () {
+    var t = T[idx];
+    try { localStorage.setItem('afl_club', t.code); } catch (e) {}
+    var dc = document.getElementById('doneCrest'); dc.replaceWith(crest(t));
+    document.querySelector('#done .crest').id = 'doneCrest';
+    document.getElementById('doneTitle').textContent = 'Welcome to ' + t.name;
+    document.getElementById('done').classList.add('show');
+  };
+  document.getElementById('back').onclick = function () { document.getElementById('done').classList.remove('show'); };
+
+  var saved = null; try { saved = localStorage.getItem('afl_club'); } catch (e) {}
+  var start = 0; T.forEach(function (t, i) { if (t.code === saved) start = i; });
+  paint(); requestAnimationFrame(function () { go(start, false); });
+})();
+</script>
+</body>
+</html>

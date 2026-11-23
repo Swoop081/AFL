@@ -22,6 +22,8 @@ STATS = {
     "FWD": [("Lead", "MI"), ("Mark in front", "CM"), ("Finish", "GL")],
     "RUC": [("Tap", "HO"), ("Follow-up", "CL"), ("Pressure", "TK")],
 }
+FANTASY = {"KI": 3, "HB": 2, "MK": 3, "TK": 4, "HO": 1, "FF": 1, "FA": -3, "GL": 6, "BH": 1}  # AFL Fantasy scoring
+FANTASY_WEIGHT = 0.5  # overall = half Fantasy average, half the position stats
 PRIOR_GAMES = 5      # how strongly low-game players are pulled to the group average
 MIN_POOL_GAMES = 8   # who counts when building the percentile scale
 W26 = 0.7
@@ -81,7 +83,8 @@ def rate():
         games = 0
         for label, key in STATS[grp]:
             vals[label], games = blended(r, d25.get(name), key)
-        rows.append({"name": name, "team": CODES[r["TM"]], "group": grp, "games": games, "vals": vals})
+        fan = sum(w * blended(r, d25.get(name), k)[0] for k, w in FANTASY.items())
+        rows.append({"name": name, "team": CODES[r["TM"]], "group": grp, "games": games, "vals": vals, "fan": fan})
     # group averages and percentile scales from regular players
     scale, avg = {}, {}
     for grp, defs in STATS.items():
@@ -90,6 +93,10 @@ def rate():
             xs = sorted(p["vals"][label] for p in pool)
             scale[(grp, label)] = xs
             avg[(grp, label)] = sum(xs) / len(xs)
+    fscale, favg = {}, {}
+    for grp in STATS:
+        xs = sorted(p["fan"] for p in rows if p["group"] == grp and p["games"] >= MIN_POOL_GAMES)
+        fscale[grp], favg[grp] = xs, sum(xs) / len(xs)
     for p in rows:
         pcts, stars = [], []
         for label, _ in STATS[p["group"]]:
@@ -102,7 +109,10 @@ def rate():
             pcts.append(pct)
             stars.append(max(1, min(5, int(pct * 5 - 1e-9) + 1)))
         p["pcts"], p["stars"] = pcts, stars
-        p["score"] = sum(pcts) / 3
+        wf = p["games"] / (p["games"] + PRIOR_GAMES)
+        fv = wf * p["fan"] + (1 - wf) * favg[p["group"]]
+        p["fan_pct"] = sum(1 for x in fscale[p["group"]] if x <= fv) / len(fscale[p["group"]])
+        p["score"] = (1 - FANTASY_WEIGHT) * sum(pcts) / 3 + FANTASY_WEIGHT * p["fan_pct"]
     # Overall comes from where a player ranks across the whole league (so 90+ stays rare).
     order = sorted(rows, key=lambda p: p["score"])
     n = len(order)
