@@ -1,0 +1,38 @@
+name: Fetch AFL data
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download AFL Tables pages
+        run: |
+          mkdir -p data/raw
+          UA="Mozilla/5.0 (compatible; afl-gm-data/1.0)"
+          for page in stats/2026a stats/2026 stats/2026t seasons/2026 stats/2025a; do
+            name=$(echo "$page" | tr '/' '_')
+            curl -sS -L -A "$UA" --retry 3 -o "data/raw/${name}.html" "https://afltables.com/afl/${page}.html"
+            sleep 2
+          done
+          ls -la data/raw
+
+      - name: Parse into CSV
+        continue-on-error: true
+        run: |
+          pip install pandas lxml html5lib beautifulsoup4
+          python scripts/parse_afl.py
+
+      - name: Commit data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add data
+          git commit -m "Add AFL 2026 data" || echo "nothing to commit"
+          git push
