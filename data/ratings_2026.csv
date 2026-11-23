@@ -1,0 +1,669 @@
+player,team,group,overall,stat1,stars1,stat2,stars2,stat3,stars3,games_weighted
+"Rowell, Matt",Gold Coast,MID,99,Gather,5,Clearance,5,Drive,5,30.5
+"Serong, Caleb",Fremantle,MID,98,Gather,5,Clearance,5,Drive,5,36.0
+"Curnow, Charlie",Sydney,FWD,98,Lead,5,Mark in front,5,Finish,5,33.0
+"Georgiades, Mitch",Port Adelaide,FWD,98,Lead,5,Mark in front,5,Finish,5,32.5
+"Bontempelli, Marcus",Western Bulldogs,MID,97,Gather,5,Clearance,5,Drive,5,33.0
+"Butters, Zak",Port Adelaide,MID,97,Gather,5,Clearance,5,Drive,5,27.0
+"Smith, Bailey",Geelong,MID,96,Gather,5,Clearance,5,Drive,5,35.5
+"Treacy, Josh",Fremantle,FWD,96,Lead,5,Mark in front,5,Finish,5,39.0
+"Naughton, Aaron",Western Bulldogs,FWD,96,Lead,5,Mark in front,5,Finish,5,35.5
+"Daicos, Nick",Collingwood,MID,95,Gather,5,Clearance,5,Drive,5,35.5
+"Richards, Ed",Western Bulldogs,MID,95,Gather,5,Clearance,5,Drive,5,35.5
+"Oliver, Clayton",Greater Western Sydney,MID,94,Gather,5,Clearance,5,Drive,4,34.0
+"Davies-Uniacke, Luke",North Melbourne,MID,94,Gather,5,Clearance,5,Drive,5,34.0
+"Darcy, Sam",Western Bulldogs,FWD,94,Lead,5,Mark in front,5,Finish,5,14.5
+"Neale, Lachie",Brisbane Lions,MID,93,Gather,5,Clearance,5,Drive,5,38.0
+"Grundy, Brodie",Sydney,RUC,93,Tap,5,Follow-up,5,Pressure,5,34.0
+"Anderson, Noah",Gold Coast,MID,92,Gather,5,Clearance,5,Drive,5,34.5
+"Thilthorpe, Riley",Adelaide,FWD,92,Lead,5,Mark in front,5,Finish,5,34.5
+"Amiss, Jye",Fremantle,FWD,92,Lead,5,Mark in front,5,Finish,5,38.0
+"Newcombe, Jai",Hawthorn,MID,91,Gather,5,Clearance,5,Drive,4,38.0
+"Reid, Harley",West Coast,MID,91,Gather,5,Clearance,5,Drive,5,32.5
+"Heeney, Isaac",Sydney,MID,91,Gather,5,Clearance,5,Drive,5,31.5
+"King, Ben",Gold Coast,FWD,91,Lead,5,Mark in front,5,Finish,5,35.5
+"Ashcroft, Will",Brisbane Lions,MID,90,Gather,5,Clearance,5,Drive,5,40.5
+"Cripps, Patrick",Carlton,MID,90,Gather,5,Clearance,5,Drive,4,36.5
+"Rankine, Izak",Adelaide,MID,90,Gather,5,Clearance,5,Drive,5,33.0
+"Taranto, Tim",Richmond,MID,90,Gather,5,Clearance,5,Drive,4,31.5
+"Petracca, Christian",Gold Coast,MID,90,Gather,5,Clearance,5,Drive,5,31.5
+"Morris, Logan",Brisbane Lions,FWD,90,Lead,5,Mark in front,4,Finish,5,39.0
+"Miller, Ben",Richmond,DEF,90,Spoil,5,Mark,5,Rebound,5,32.5
+"Andrew, Mac",Gold Coast,DEF,89,Spoil,5,Mark,5,Rebound,5,35.0
+"McCartin, Tom",Sydney,DEF,89,Spoil,4,Mark,5,Rebound,5,32.0
+"Xerri, Tristan",North Melbourne,RUC,89,Tap,4,Follow-up,5,Pressure,5,29.0
+"Neale, Shannon",Geelong,FWD,89,Lead,5,Mark in front,5,Finish,5,37.5
+"Larkey, Nick",North Melbourne,FWD,89,Lead,5,Mark in front,5,Finish,5,31.5
+"Gunston, Jack",Hawthorn,FWD,89,Lead,5,Mark in front,3,Finish,5,30.5
+"Hogan, Jesse",Greater Western Sydney,FWD,89,Lead,5,Mark in front,5,Finish,5,17.0
+"Warner, Chad",Sydney,MID,88,Gather,4,Clearance,4,Drive,5,33.5
+"Ryan, Luke",Fremantle,DEF,88,Spoil,4,Mark,5,Rebound,5,38.0
+"Parish, Darcy",Essendon,MID,88,Gather,5,Clearance,5,Drive,4,15.5
+"Waterman, Jake",West Coast,FWD,88,Lead,5,Mark in front,4,Finish,5,27.0
+"Cameron, Jeremy",Geelong,FWD,88,Lead,5,Mark in front,4,Finish,5,32.0
+"Weitering, Jacob",Carlton,DEF,88,Spoil,5,Mark,5,Rebound,4,25.5
+"Holmes, Max",Geelong,MID,87,Gather,4,Clearance,4,Drive,5,33.0
+"Horne-Francis, Jason",Port Adelaide,MID,87,Gather,4,Clearance,5,Drive,5,28.5
+"Aliir, Aliir",Port Adelaide,DEF,87,Spoil,4,Mark,5,Rebound,5,33.0
+"McAndrew, Lachlan",Adelaide,RUC,87,Tap,5,Follow-up,4,Pressure,5,24.0
+"McDonald, Logan",Sydney,FWD,87,Lead,5,Mark in front,4,Finish,5,23.0
+"Nankervis, Toby",Richmond,RUC,87,Tap,4,Follow-up,5,Pressure,5,23.0
+"Fogarty, Darcy",Adelaide,FWD,87,Lead,5,Mark in front,5,Finish,5,28.0
+"Walsh, Sam",Carlton,MID,86,Gather,5,Clearance,4,Drive,5,32.0
+"Dawson, Jordan",Adelaide,MID,86,Gather,4,Clearance,4,Drive,5,34.5
+"Himmelberg, Harry",Greater Western Sydney,DEF,86,Spoil,4,Mark,5,Rebound,5,35.0
+"Andrews, Harris",Brisbane Lions,DEF,86,Spoil,5,Mark,5,Rebound,3,37.5
+"McKay, Harry",Carlton,FWD,86,Lead,4,Mark in front,5,Finish,4,29.0
+"Howe, Jeremy",Collingwood,DEF,86,Spoil,4,Mark,4,Rebound,5,27.5
+"Lynch, Tom",Richmond,FWD,86,Lead,5,Mark in front,5,Finish,4,23.0
+"Steele, Jack",Melbourne,MID,85,Gather,5,Clearance,5,Drive,4,34.5
+"Callaghan, Finn",Greater Western Sydney,MID,85,Gather,4,Clearance,4,Drive,5,29.5
+"Battle, Josh",Hawthorn,DEF,85,Spoil,4,Mark,5,Rebound,5,36.0
+"Gulden, Errol",Sydney,MID,85,Gather,4,Clearance,4,Drive,5,18.0
+"Young, Tylar",West Coast,DEF,85,Spoil,4,Mark,5,Rebound,5,26.5
+"Worpel, James",Geelong,MID,85,Gather,4,Clearance,5,Drive,5,21.5
+"Brayshaw, Andrew",Fremantle,MID,84,Gather,4,Clearance,4,Drive,5,39.0
+"Pickett, Kysaiah",Melbourne,MID,84,Gather,4,Clearance,4,Drive,5,34.0
+"Kelly, Tim",West Coast,MID,84,Gather,4,Clearance,4,Drive,5,31.0
+"Durham, Sam",Essendon,MID,84,Gather,5,Clearance,4,Drive,4,30.0
+"Haynes, Nick",Carlton,DEF,84,Spoil,4,Mark,5,Rebound,4,30.5
+"Liberatore, Tom",Western Bulldogs,MID,84,Gather,5,Clearance,5,Drive,4,22.5
+"Hopper, Jacob",Richmond,MID,84,Gather,5,Clearance,5,Drive,4,23.5
+"Walker, Taylor",Adelaide,FWD,84,Lead,4,Mark in front,5,Finish,5,29.5
+"Amartey, Joel",Sydney,FWD,84,Lead,5,Mark in front,4,Finish,4,19.0
+"Sheezel, Harry",North Melbourne,MID,83,Gather,4,Clearance,4,Drive,5,33.5
+"Bolton, Shai",Fremantle,MID,83,Gather,4,Clearance,4,Drive,5,37.5
+"Kennedy, Matthew",Western Bulldogs,MID,83,Gather,4,Clearance,5,Drive,4,35.5
+"Berry, Sam",Adelaide,MID,83,Gather,5,Clearance,5,Drive,4,33.5
+"Jackson, Luke",Fremantle,RUC,83,Tap,4,Follow-up,4,Pressure,5,37.5
+"Hewett, George",Carlton,MID,83,Gather,5,Clearance,5,Drive,4,32.5
+"Reid, Zach",Essendon,DEF,83,Spoil,4,Mark,5,Rebound,4,28.0
+"Meek, Lloyd",Hawthorn,RUC,83,Tap,5,Follow-up,4,Pressure,5,37.5
+"McStay, Daniel",Collingwood,FWD,83,Lead,4,Mark in front,5,Finish,4,33.0
+"Chol, Mabior",Hawthorn,FWD,83,Lead,4,Mark in front,5,Finish,4,32.0
+"Miller, Touk",Gold Coast,MID,82,Gather,4,Clearance,4,Drive,4,34.5
+"Greene, Toby",Greater Western Sydney,MID,82,Gather,4,Clearance,4,Drive,5,32.0
+"OSullivan, Connor",Geelong,DEF,82,Spoil,4,Mark,5,Rebound,4,37.5
+"Laverde, Jayden",Greater Western Sydney,DEF,82,Spoil,4,Mark,5,Rebound,4,26.0
+"Day, Will",Hawthorn,MID,82,Gather,4,Clearance,4,Drive,4,16.0
+"Macrae, Jack",St Kilda,MID,82,Gather,5,Clearance,5,Drive,3,22.5
+"Sharman, Cooper",St Kilda,FWD,82,Lead,5,Mark in front,5,Finish,4,31.5
+"Caddy, Nate",Essendon,FWD,82,Lead,4,Mark in front,4,Finish,4,30.5
+"Cadman, Aaron",Greater Western Sydney,FWD,82,Lead,4,Mark in front,5,Finish,4,30.0
+"Mihocek, Brody",Melbourne,FWD,82,Lead,4,Mark in front,5,Finish,4,21.0
+"Merrett, Zach",Essendon,MID,81,Gather,4,Clearance,4,Drive,5,34.0
+"Garcia, Hugo",St Kilda,MID,81,Gather,4,Clearance,5,Drive,4,31.5
+"Hall, Max",St Kilda,MID,81,Gather,4,Clearance,4,Drive,5,34.5
+"Ross, Jack",Richmond,MID,81,Gather,4,Clearance,4,Drive,4,30.5
+"Duggan, Liam",West Coast,DEF,81,Spoil,3,Mark,5,Rebound,5,32.5
+"Quaynor, Isaac",Collingwood,DEF,81,Spoil,4,Mark,4,Rebound,5,33.5
+"Frampton, Billy",Collingwood,DEF,81,Spoil,5,Mark,4,Rebound,4,32.0
+"Voss, Patrick",Fremantle,FWD,81,Lead,5,Mark in front,4,Finish,5,36.0
+"van Rooyen, Jacob",Melbourne,FWD,81,Lead,4,Mark in front,4,Finish,4,30.0
+"Membrey, Tim",Collingwood,FWD,81,Lead,5,Mark in front,4,Finish,4,31.5
+"Smith, Jagga",Carlton,MID,80,Gather,4,Clearance,4,Drive,4,25.0
+"Ward, Josh",Hawthorn,MID,80,Gather,4,Clearance,4,Drive,4,37.5
+"Sparrow, Tom",Melbourne,MID,80,Gather,4,Clearance,4,Drive,4,35.0
+"Worner, Karl",Fremantle,DEF,80,Spoil,3,Mark,4,Rebound,5,38.5
+"Wanganeen-Milera, Nasiah",St Kilda,MID,80,Gather,4,Clearance,4,Drive,5,28.5
+"Silvagni, Jack",St Kilda,DEF,80,Spoil,4,Mark,5,Rebound,3,29.5
+"Farrell, Kane",Port Adelaide,DEF,80,Spoil,3,Mark,5,Rebound,5,23.5
+"Curtis, Paul",North Melbourne,FWD,80,Lead,4,Mark in front,4,Finish,5,29.5
+"Darling, Jack",North Melbourne,FWD,80,Lead,4,Mark in front,5,Finish,4,33.0
+"Coffield, Nick",Western Bulldogs,DEF,80,Spoil,3,Mark,5,Rebound,4,15.0
+"Atkins, Tom",Geelong,MID,79,Gather,5,Clearance,4,Drive,3,38.0
+"Drew, Willem",Port Adelaide,MID,79,Gather,4,Clearance,4,Drive,4,33.5
+"Cameron, Darcy",Collingwood,RUC,79,Tap,4,Follow-up,4,Pressure,4,35.5
+"Lever, Jake",Melbourne,DEF,79,Spoil,4,Mark,5,Rebound,3,26.0
+"Maynard, Brayden",Collingwood,DEF,79,Spoil,4,Mark,4,Rebound,5,27.0
+"Turner, Daniel",Melbourne,DEF,79,Spoil,4,Mark,5,Rebound,4,29.5
+"Sweet, Jordon",Port Adelaide,RUC,79,Tap,5,Follow-up,4,Pressure,3,31.5
+"Keane, Mark",Adelaide,DEF,79,Spoil,5,Mark,3,Rebound,5,23.5
+"Annand, Kye",Richmond,DEF,79,Spoil,5,Mark,3,Rebound,4,11.0
+"Polkinghorne, Jay",Geelong,FWD,79,Lead,5,Mark in front,4,Finish,4,8.0
+"Gawn, Max",Melbourne,RUC,78,Tap,5,Follow-up,5,Pressure,2,35.5
+"Young, Hayden",Fremantle,MID,78,Gather,4,Clearance,4,Drive,4,22.5
+"Lewis, Mitch",Hawthorn,FWD,78,Lead,4,Mark in front,5,Finish,4,28.0
+"Collins, Sam",Gold Coast,DEF,78,Spoil,5,Mark,5,Rebound,3,32.0
+"Stringer, Jake",Greater Western Sydney,FWD,78,Lead,4,Mark in front,3,Finish,5,30.5
+"Comben, Charlie",North Melbourne,DEF,78,Spoil,5,Mark,4,Rebound,3,32.0
+"Petty, Harry",Melbourne,FWD,78,Lead,4,Mark in front,5,Finish,3,29.5
+"Shanahan, Jobe",West Coast,FWD,78,Lead,4,Mark in front,5,Finish,4,27.5
+"Walter, Jed",Gold Coast,FWD,78,Lead,4,Mark in front,4,Finish,4,26.0
+"Murray, Nick",Adelaide,DEF,78,Spoil,5,Mark,2,Rebound,5,17.0
+"Dunkley, Josh",Brisbane Lions,MID,77,Gather,4,Clearance,4,Drive,4,40.5
+"Wines, Ollie",Port Adelaide,MID,77,Gather,5,Clearance,4,Drive,3,29.0
+"Cowan, Lachlan",Carlton,DEF,77,Spoil,3,Mark,4,Rebound,5,31.0
+"Yeo, Elliot",West Coast,MID,77,Gather,4,Clearance,4,Drive,4,21.0
+"Broad, Nathan",Richmond,DEF,77,Spoil,4,Mark,4,Rebound,4,32.0
+"Redman, Mason",Essendon,DEF,77,Spoil,3,Mark,4,Rebound,5,25.5
+"Fritsch, Bayley",Melbourne,FWD,77,Lead,4,Mark in front,4,Finish,4,33.0
+"Kemp, Brodie",Carlton,FWD,77,Lead,5,Mark in front,3,Finish,4,27.5
+"Owens, Mitch",St Kilda,FWD,77,Lead,4,Mark in front,5,Finish,4,29.5
+"Briggs, Kieren",Greater Western Sydney,RUC,77,Tap,4,Follow-up,4,Pressure,4,28.0
+"Bailey, Zac",Brisbane Lions,MID,76,Gather,4,Clearance,4,Drive,5,39.0
+"Hardwick, Blake",Hawthorn,DEF,76,Spoil,3,Mark,4,Rebound,4,38.0
+"Lester, Ryan",Brisbane Lions,DEF,76,Spoil,4,Mark,5,Rebound,3,36.0
+"McDonald, Luke",North Melbourne,DEF,76,Spoil,3,Mark,4,Rebound,4,25.5
+"Dangerfield, Patrick",Geelong,FWD,76,Lead,4,Mark in front,4,Finish,4,30.5
+"Wardlaw, George",North Melbourne,MID,76,Gather,4,Clearance,4,Drive,4,22.5
+"Nash, Conor",Hawthorn,MID,76,Gather,4,Clearance,5,Drive,3,21.0
+"Hipwood, Eric",Brisbane Lions,FWD,76,Lead,4,Mark in front,4,Finish,4,25.0
+"Elliott, Jamie",Collingwood,FWD,76,Lead,4,Mark in front,3,Finish,4,23.5
+"OBrien, Reilly",Adelaide,RUC,76,Tap,5,Follow-up,3,Pressure,4,14.5
+"Simpkin, Jy",North Melbourne,MID,75,Gather,4,Clearance,4,Drive,4,33.5
+"Peatling, James",Adelaide,MID,75,Gather,4,Clearance,4,Drive,3,32.5
+"Guthrie, Zach",Geelong,DEF,75,Spoil,3,Mark,4,Rebound,4,38.0
+"Sheldrick, Angus",Sydney,MID,75,Gather,4,Clearance,4,Drive,4,30.0
+"Caldwell, Jye",Essendon,MID,75,Gather,4,Clearance,4,Drive,3,22.5
+"Taylor, Sam",Greater Western Sydney,DEF,75,Spoil,5,Mark,4,Rebound,3,22.0
+"Witts, Jarrod",Gold Coast,RUC,75,Tap,5,Follow-up,4,Pressure,3,25.0
+"Gruzewski, Max",Greater Western Sydney,FWD,75,Lead,4,Mark in front,4,Finish,4,18.5
+"McDonald, Tom",Melbourne,DEF,75,Spoil,4,Mark,4,Rebound,4,19.5
+"Ratugolea, Esava",Port Adelaide,DEF,75,Spoil,4,Mark,4,Rebound,3,14.5
+"Jeffrey, Joel",Gold Coast,DEF,74,Spoil,3,Mark,4,Rebound,4,34.5
+"Prior, Jaxon",Essendon,DEF,74,Spoil,3,Mark,4,Rebound,5,33.5
+"Vlastuin, Nick",Richmond,DEF,74,Spoil,3,Mark,4,Rebound,5,33.0
+"Evans, Logan",Port Adelaide,DEF,74,Spoil,3,Mark,3,Rebound,4,24.0
+"Cameron, Charlie",Brisbane Lions,FWD,74,Lead,4,Mark in front,3,Finish,5,39.5
+"McInerney, Justin",Sydney,MID,74,Gather,4,Clearance,4,Drive,4,22.5
+"Pittonet, Marc",Carlton,RUC,74,Tap,3,Follow-up,4,Pressure,4,25.5
+"Henry, Oliver",Geelong,FWD,74,Lead,4,Mark in front,4,Finish,4,31.5
+"Setterfield, Will",Essendon,MID,74,Gather,4,Clearance,4,Drive,4,17.5
+"Coleman, Keidean",Brisbane Lions,DEF,74,Spoil,2,Mark,4,Rebound,5,13.5
+"Daniels, Brent",Greater Western Sydney,MID,74,Gather,3,Clearance,4,Drive,4,13.0
+"Tsatas, Elijah",Essendon,MID,74,Gather,4,Clearance,4,Drive,3,8.5
+"May, Archie",Essendon,FWD,74,Lead,4,Mark in front,4,Finish,4,13.5
+"Crisp, Jack",Collingwood,MID,73,Gather,4,Clearance,3,Drive,4,36.5
+"Freijah, Joel",Western Bulldogs,MID,73,Gather,4,Clearance,4,Drive,3,36.5
+"de Goey, Jordan",Collingwood,MID,73,Gather,3,Clearance,3,Drive,4,27.5
+"Mackenzie, Cam",Hawthorn,MID,73,Gather,4,Clearance,4,Drive,4,29.0
+"Cerra, Adam",Carlton,MID,73,Gather,4,Clearance,4,Drive,4,31.5
+"Fonti, Joe",Greater Western Sydney,DEF,73,Spoil,4,Mark,4,Rebound,3,30.5
+"Williams, Bailey",West Coast,RUC,73,Tap,4,Follow-up,4,Pressure,3,27.0
+"Marshall, Rowan",St Kilda,RUC,73,Tap,3,Follow-up,5,Pressure,4,32.5
+"Rowbottom, James",Sydney,MID,73,Gather,4,Clearance,4,Drive,3,34.5
+"Lohmann, Kai",Brisbane Lions,FWD,73,Lead,4,Mark in front,3,Finish,4,36.0
+"Robey, Sullivan",Essendon,MID,73,Gather,4,Clearance,4,Drive,4,15.0
+"Fitzgerald, Joel",Melbourne,MID,73,Gather,4,Clearance,4,Drive,4,11.0
+"ODonnell, James",Western Bulldogs,DEF,73,Spoil,5,Mark,2,Rebound,3,32.0
+"Buller, Jack",Collingwood,FWD,73,Lead,4,Mark in front,4,Finish,3,14.5
+"Howard, Dougal",St Kilda,DEF,73,Spoil,4,Mark,5,Rebound,3,8.5
+"Melksham, Jake",Melbourne,FWD,73,Lead,4,Mark in front,4,Finish,4,16.5
+"Rozee, Connor",Port Adelaide,MID,73,Gather,4,Clearance,4,Drive,4,12.5
+"Reid, Murphy",Fremantle,MID,72,Gather,3,Clearance,3,Drive,4,37.0
+"Windhager, Marcus",St Kilda,MID,72,Gather,3,Clearance,3,Drive,4,34.5
+"Macdonald, Connor",Hawthorn,MID,72,Gather,3,Clearance,3,Drive,4,37.0
+"Burgoyne, Jase",Port Adelaide,MID,72,Gather,4,Clearance,3,Drive,4,33.0
+"Hayward, Will",Carlton,FWD,72,Lead,3,Mark in front,4,Finish,3,31.5
+"Prestia, Dion",Richmond,MID,72,Gather,3,Clearance,4,Drive,4,23.0
+"Watson, Nick",Hawthorn,FWD,72,Lead,3,Mark in front,3,Finish,5,35.5
+"Lai, Josh",Port Adelaide,DEF,72,Spoil,3,Mark,4,Rebound,4,19.0
+"Long, Ben",Gold Coast,FWD,72,Lead,4,Mark in front,3,Finish,4,33.0
+"Cox, Brennan",Fremantle,DEF,72,Spoil,5,Mark,3,Rebound,3,30.0
+"McDonald, Oscar",Fremantle,DEF,72,Spoil,4,Mark,4,Rebound,3,17.5
+"Ginbey, Reuben",West Coast,DEF,72,Spoil,4,Mark,2,Rebound,4,24.5
+"Higgins, Jack",St Kilda,FWD,72,Lead,4,Mark in front,2,Finish,5,27.5
+"Croft, Jordan",Western Bulldogs,FWD,72,Lead,4,Mark in front,4,Finish,3,18.0
+"Busslinger, Jedd",Western Bulldogs,DEF,72,Spoil,5,Mark,3,Rebound,3,11.5
+"Davies, Alex",Gold Coast,MID,72,Gather,4,Clearance,4,Drive,3,10.0
+"Pink, Toby",North Melbourne,DEF,72,Spoil,4,Mark,4,Rebound,3,13.5
+"Fletcher, Jaspa",Brisbane Lions,DEF,71,Spoil,2,Mark,5,Rebound,4,40.5
+"Dempsey, Oliver",Geelong,FWD,71,Lead,3,Mark in front,4,Finish,4,38.0
+"Chapman, Heath",Fremantle,DEF,71,Spoil,4,Mark,4,Rebound,3,37.5
+"Soligo, Jake",Adelaide,MID,71,Gather,4,Clearance,3,Drive,3,34.5
+"Bergman, Miles",Port Adelaide,DEF,71,Spoil,3,Mark,4,Rebound,4,25.5
+"Sharp, Dyson",Essendon,MID,71,Gather,4,Clearance,4,Drive,3,15.0
+"McGovern, Mitch",Carlton,FWD,71,Lead,3,Mark in front,4,Finish,3,33.5
+"Whitlock, Jack",Port Adelaide,FWD,71,Lead,4,Mark in front,4,Finish,3,25.0
+"Ryan, Liam",St Kilda,FWD,71,Lead,4,Mark in front,3,Finish,4,27.0
+"Allen, Oscar",Brisbane Lions,FWD,71,Lead,4,Mark in front,3,Finish,4,21.0
+"Madden, Nick",Greater Western Sydney,RUC,71,Tap,3,Follow-up,3,Pressure,4,10.5
+"Buckley, Jack",Greater Western Sydney,DEF,71,Spoil,5,Mark,3,Rebound,3,18.5
+"Brodie, Will",Port Adelaide,MID,71,Gather,4,Clearance,4,Drive,3,2.0
+"Flynn, Matt",West Coast,RUC,71,Tap,3,Follow-up,3,Pressure,4,13.0
+"Joyce, Darragh",Brisbane Lions,DEF,71,Spoil,4,Mark,4,Rebound,3,3.0
+"Viney, Jack",Melbourne,MID,71,Gather,4,Clearance,4,Drive,3,10.0
+"Wilson, Darcy",St Kilda,MID,70,Gather,3,Clearance,3,Drive,4,31.0
+"Johnson, Matthew",Fremantle,MID,70,Gather,3,Clearance,4,Drive,3,35.0
+"Pendlebury, Scott",Collingwood,MID,70,Gather,4,Clearance,4,Drive,3,28.0
+"Richards, Joe",Port Adelaide,MID,70,Gather,3,Clearance,3,Drive,3,31.0
+"Powell, Wil",Gold Coast,DEF,70,Spoil,2,Mark,3,Rebound,4,32.5
+"Sellwood, Michael",Western Bulldogs,DEF,70,Spoil,3,Mark,3,Rebound,4,24.0
+"Flanders, Sam",St Kilda,MID,70,Gather,3,Clearance,3,Drive,4,23.5
+"Brown, Tom",Richmond,DEF,70,Spoil,3,Mark,3,Rebound,5,29.5
+"English, Tim",Western Bulldogs,RUC,70,Tap,4,Follow-up,3,Pressure,4,28.5
+"Derksen, Wade",Carlton,DEF,70,Spoil,4,Mark,4,Rebound,2,15.0
+"Trainor, Luke",Richmond,DEF,70,Spoil,3,Mark,3,Rebound,4,21.5
+"Jefferson, Matthew",Melbourne,FWD,70,Lead,3,Mark in front,4,Finish,3,19.5
+"Lewis, Will",Western Bulldogs,FWD,70,Lead,3,Mark in front,4,Finish,3,13.0
+"Francou, Oliver",West Coast,MID,70,Gather,4,Clearance,4,Drive,3,4.0
+"Dear, Calsher",Hawthorn,FWD,70,Lead,4,Mark in front,4,Finish,3,9.5
+"Stevens, George",Geelong,MID,70,Gather,3,Clearance,4,Drive,3,3.0
+"Moir, Ashton",Carlton,FWD,70,Lead,4,Mark in front,3,Finish,4,6.5
+"Daicos, Josh",Collingwood,MID,69,Gather,3,Clearance,3,Drive,4,36.5
+"Bruhn, Tanner",Geelong,MID,69,Gather,3,Clearance,3,Drive,4,23.0
+"OSullivan, Finn",North Melbourne,MID,69,Gather,3,Clearance,3,Drive,3,30.0
+"Long, Ned",Collingwood,MID,69,Gather,4,Clearance,4,Drive,3,34.5
+"Jiath, Changkuoth",Melbourne,DEF,69,Spoil,3,Mark,3,Rebound,3,26.0
+"Martin, Jack",Geelong,FWD,69,Lead,4,Mark in front,3,Finish,3,24.5
+"Logue, Griffin",North Melbourne,DEF,69,Spoil,4,Mark,3,Rebound,3,24.0
+"Edwards, Will",Sydney,DEF,69,Spoil,5,Mark,1,Rebound,3,14.0
+"Williams, Jack",West Coast,FWD,69,Lead,3,Mark in front,4,Finish,3,18.5
+"Reeves, Ned",Hawthorn,RUC,69,Tap,4,Follow-up,3,Pressure,3,15.5
+"Scrimshaw, Jack",Hawthorn,DEF,69,Spoil,3,Mark,3,Rebound,4,14.0
+"Ridley, Jordan",Essendon,DEF,69,Spoil,3,Mark,4,Rebound,3,12.0
+"Treloar, Adam",Western Bulldogs,MID,69,Gather,3,Clearance,3,Drive,4,7.0
+"Mraz, Noah",Hawthorn,DEF,69,Spoil,4,Mark,4,Rebound,2,4.0
+"Dowling, Billy",Adelaide,FWD,69,Lead,3,Mark in front,3,Finish,4,3.5
+"Maley, Finnbar",Adelaide,FWD,69,Lead,3,Mark in front,5,Finish,2,9.5
+"Ugle-Hagan, Jamarra",Gold Coast,FWD,69,Lead,3,Mark in front,3,Finish,4,3.0
+"Sanders, Ryley",Western Bulldogs,MID,68,Gather,4,Clearance,4,Drive,3,33.5
+"DAmbrosio, Massimo",Hawthorn,MID,68,Gather,3,Clearance,3,Drive,4,38.0
+"Rachele, Josh",Adelaide,FWD,68,Lead,3,Mark in front,2,Finish,4,32.0
+"Farrow, Jacob",Essendon,DEF,68,Spoil,1,Mark,5,Rebound,4,21.0
+"Weddle, Josh",Hawthorn,DEF,68,Spoil,3,Mark,4,Rebound,3,31.0
+"Windsor, Caleb",Melbourne,MID,68,Gather,2,Clearance,3,Drive,4,29.5
+"Humphrey, Bailey",Gold Coast,FWD,68,Lead,3,Mark in front,3,Finish,3,31.5
+"Bazzo, Rhett",West Coast,DEF,68,Spoil,5,Mark,4,Rebound,2,17.5
+"Moyle, Ned",Gold Coast,RUC,68,Tap,4,Follow-up,2,Pressure,3,17.5
+"Gardiner, Darcy",Brisbane Lions,DEF,68,Spoil,4,Mark,3,Rebound,2,25.0
+"Read, Ethan",Gold Coast,FWD,68,Lead,3,Mark in front,4,Finish,2,25.5
+"Powell, Tom",North Melbourne,MID,68,Gather,3,Clearance,4,Drive,3,19.5
+"Gray, Campbell",Richmond,DEF,68,Spoil,5,Mark,2,Rebound,3,11.5
+"Mansell, Rhyan",Richmond,FWD,68,Lead,3,Mark in front,3,Finish,3,16.0
+"Edwards, Tom",Essendon,FWD,68,Lead,3,Mark in front,3,Finish,4,8.0
+"Edwards, Charlie",Adelaide,MID,68,Gather,3,Clearance,3,Drive,3,2.0
+"Moore, Darcy",Collingwood,DEF,68,Spoil,4,Mark,2,Rebound,3,15.0
+"Clark, Jordan",Fremantle,MID,67,Gather,3,Clearance,3,Drive,3,39.0
+"Schultz, Lachie",Collingwood,FWD,67,Lead,4,Mark in front,3,Finish,3,30.0
+"Papley, Tom",Sydney,FWD,67,Lead,3,Mark in front,2,Finish,4,25.5
+"Dean, Harry",Carlton,DEF,67,Spoil,4,Mark,4,Rebound,2,22.0
+"Hollands, Oliver",Carlton,DEF,67,Spoil,2,Mark,4,Rebound,3,25.5
+"Corr, Aidan",North Melbourne,DEF,67,Spoil,4,Mark,2,Rebound,3,21.0
+"Answerth, Noah",Brisbane Lions,DEF,67,Spoil,3,Mark,3,Rebound,3,24.5
+"Brown, Callum",Greater Western Sydney,FWD,67,Lead,3,Mark in front,3,Finish,3,29.0
+"Salem, Christian",Melbourne,DEF,67,Spoil,2,Mark,3,Rebound,5,20.5
+"OMeara, Jaeger",Fremantle,MID,67,Gather,3,Clearance,3,Drive,3,13.0
+"Goater, Josh",North Melbourne,DEF,67,Spoil,3,Mark,3,Rebound,3,6.0
+"Culley, Jai",Melbourne,MID,67,Gather,3,Clearance,3,Drive,3,9.0
+"Alger, Jasper",Richmond,FWD,67,Lead,3,Mark in front,3,Finish,3,10.0
+"Fawcett, Liam",Richmond,FWD,67,Lead,3,Mark in front,3,Finish,4,7.5
+"Howes, Noah",Collingwood,DEF,67,Spoil,3,Mark,2,Rebound,3,2.0
+"Murray, Tobyn",Fremantle,FWD,67,Lead,3,Mark in front,3,Finish,3,1.0
+"Ash, Lachie",Greater Western Sydney,MID,66,Gather,3,Clearance,3,Drive,4,35.0
+"Roberts, Archie",Essendon,MID,66,Gather,3,Clearance,3,Drive,3,32.5
+"Lipinski, Patrick",Collingwood,MID,66,Gather,3,Clearance,3,Drive,3,31.5
+"Sinclair, Jack",St Kilda,MID,66,Gather,3,Clearance,3,Drive,3,26.5
+"Michalanney, Max",Adelaide,DEF,66,Spoil,3,Mark,3,Rebound,3,35.5
+"Miers, Gryan",Geelong,MID,66,Gather,3,Clearance,3,Drive,3,29.0
+"Jordon, James",Sydney,MID,66,Gather,3,Clearance,3,Drive,3,33.5
+"Jones, Lachie",Port Adelaide,DEF,66,Spoil,4,Mark,1,Rebound,4,29.0
+"Durdin, Corey",Port Adelaide,FWD,66,Lead,3,Mark in front,3,Finish,3,31.0
+"Swadling, Sam",Collingwood,MID,66,Gather,3,Clearance,3,Drive,3,9.0
+"Brock, Sandy",West Coast,DEF,66,Spoil,4,Mark,2,Rebound,3,13.0
+"Zerk-Thatcher, Brandon",Port Adelaide,DEF,66,Spoil,4,Mark,3,Rebound,2,10.5
+"Brain, Shadeau",Brisbane Lions,DEF,66,Spoil,3,Mark,3,Rebound,2,2.0
+"Hustwaite, Henry",Hawthorn,MID,66,Gather,3,Clearance,4,Drive,2,3.0
+"Smith, Lachlan",Western Bulldogs,RUC,66,Tap,2,Follow-up,3,Pressure,4,2.0
+"Schubert, Aidan",Hawthorn,MID,66,Gather,3,Clearance,3,Drive,3,1.0
+"Riley, Flynn",Carlton,RUC,66,Tap,3,Follow-up,3,Pressure,4,1.0
+"Rayner, Cam",Brisbane Lions,FWD,65,Lead,3,Mark in front,3,Finish,3,40.5
+"Allan, Edward",Collingwood,MID,65,Gather,3,Clearance,3,Drive,3,25.5
+"Khamis, Buku",Western Bulldogs,DEF,65,Spoil,4,Mark,3,Rebound,2,32.0
+"Lindsay, Josh",West Coast,DEF,65,Spoil,2,Mark,2,Rebound,4,15.0
+"Perryman, Harry",Collingwood,DEF,65,Spoil,3,Mark,3,Rebound,3,28.5
+"Hall-Kahan, Hugo",Adelaide,DEF,65,Spoil,2,Mark,2,Rebound,5,13.0
+"Jones, Arthur",Western Bulldogs,FWD,65,Lead,3,Mark in front,3,Finish,3,22.0
+"Lalor, Sam",Richmond,FWD,65,Lead,3,Mark in front,3,Finish,3,17.5
+"Bryan, Nick",Essendon,RUC,65,Tap,3,Follow-up,3,Pressure,3,15.0
+"Lukosius, Jack",Port Adelaide,FWD,65,Lead,3,Mark in front,3,Finish,3,11.5
+"West, Charlie",Collingwood,FWD,65,Lead,2,Mark in front,4,Finish,3,9.5
+"Darcy, Sean",Fremantle,RUC,65,Tap,3,Follow-up,3,Pressure,3,15.5
+"Green, Will",Sydney,RUC,65,Tap,2,Follow-up,3,Pressure,4,3.0
+"Roberts-Thomson, Noah",Richmond,FWD,65,Lead,3,Mark in front,3,Finish,4,3.0
+"Stanley, Rhys",Geelong,RUC,65,Tap,3,Follow-up,3,Pressure,3,10.5
+"Cooke, Lukas",Melbourne,DEF,65,Spoil,3,Mark,3,Rebound,3,2.0
+"Gibcus, Josh",Richmond,DEF,65,Spoil,4,Mark,2,Rebound,3,1.5
+"Berry, Jarrod",Brisbane Lions,DEF,64,Spoil,2,Mark,4,Rebound,3,34.0
+"Keays, Ben",Adelaide,FWD,64,Lead,3,Mark in front,2,Finish,4,37.5
+"Zurhaar, Cameron",North Melbourne,DEF,64,Spoil,3,Mark,4,Rebound,2,34.0
+"Blicavs, Mark",Geelong,RUC,64,Tap,2,Follow-up,3,Pressure,4,32.5
+"Frederick, Michael",Fremantle,FWD,64,Lead,3,Mark in front,3,Finish,3,34.0
+"Rampe, Dane",Sydney,DEF,64,Spoil,4,Mark,1,Rebound,4,27.5
+"Cottrell, Matthew",Carlton,MID,64,Gather,3,Clearance,2,Drive,4,17.0
+"Barrass, Tom",Hawthorn,DEF,64,Spoil,5,Mark,2,Rebound,2,33.5
+"Graham, Will",Gold Coast,MID,64,Gather,3,Clearance,3,Drive,3,16.0
+"Butts, Jordon",Adelaide,DEF,64,Spoil,4,Mark,2,Rebound,2,14.0
+"Faull, Jonty",Richmond,FWD,64,Lead,3,Mark in front,4,Finish,2,18.0
+"Ough, Jack",Greater Western Sydney,MID,64,Gather,3,Clearance,3,Drive,2,5.0
+"Saad, Adam",Carlton,DEF,64,Spoil,3,Mark,1,Rebound,5,13.5
+"Banfield, Charlie",St Kilda,MID,64,Gather,3,Clearance,3,Drive,3,3.0
+"Boyd, Jordan",Carlton,DEF,64,Spoil,3,Mark,2,Rebound,4,3.5
+"Podhajski, Mitch",Collingwood,MID,64,Gather,3,Clearance,3,Drive,3,2.0
+"Hill, Matt",Hawthorn,FWD,64,Lead,3,Mark in front,3,Finish,3,2.0
+"Parker, Luke",North Melbourne,MID,63,Gather,4,Clearance,3,Drive,2,34.0
+"Blakey, Nick",Sydney,MID,63,Gather,2,Clearance,2,Drive,4,33.5
+"Bowey, Jake",Melbourne,MID,63,Gather,3,Clearance,3,Drive,2,27.5
+"Wilson, Billy",Carlton,DEF,63,Spoil,2,Mark,3,Rebound,4,19.0
+"West, Rhylee",Western Bulldogs,FWD,63,Lead,3,Mark in front,3,Finish,3,35.5
+"Evans, Francis",Carlton,FWD,63,Lead,3,Mark in front,3,Finish,3,28.0
+"Stocker, Liam",St Kilda,DEF,63,Spoil,3,Mark,3,Rebound,3,26.5
+"Ralphsmith, Hugo",Richmond,MID,63,Gather,3,Clearance,3,Drive,3,19.0
+"Addinsall, Beau",Gold Coast,MID,63,Gather,3,Clearance,3,Drive,2,9.0
+"Jaques, Lachie",Western Bulldogs,DEF,63,Spoil,3,Mark,3,Rebound,3,10.0
+"Kolodjashnij, Jake",Geelong,DEF,63,Spoil,4,Mark,2,Rebound,2,11.0
+"Hotton, Taj",Richmond,MID,63,Gather,3,Clearance,3,Drive,2,13.5
+"Robertson, Deven",West Coast,MID,63,Gather,3,Clearance,3,Drive,2,6.0
+"Hewett, Elijah",West Coast,MID,63,Gather,3,Clearance,3,Drive,2,16.0
+"Visentini, Vigo",Essendon,RUC,63,Tap,2,Follow-up,3,Pressure,3,4.0
+"Ryan, Oscar",Adelaide,DEF,63,Spoil,3,Mark,3,Rebound,3,2.0
+"Owies, Matthew",West Coast,FWD,63,Lead,3,Mark in front,4,Finish,2,11.0
+"Moniz-Wakefield, Andy",Melbourne,MID,63,Gather,3,Clearance,3,Drive,3,2.0
+"King, Max",St Kilda,MID,63,Gather,3,Clearance,3,Drive,2,1.0
+"Florent, Oliver",Carlton,MID,62,Gather,3,Clearance,3,Drive,3,33.0
+"Ainsworth, Ben",Carlton,FWD,62,Lead,3,Mark in front,2,Finish,3,37.0
+"Roberts, Matt",Sydney,DEF,62,Spoil,2,Mark,3,Rebound,3,30.0
+"Phillipou, Mattaes",St Kilda,MID,62,Gather,3,Clearance,3,Drive,3,24.5
+"Retschko, Patrick",Richmond,DEF,62,Spoil,2,Mark,4,Rebound,3,18.0
+"Fort, Darcy",Brisbane Lions,RUC,62,Tap,3,Follow-up,3,Pressure,2,36.5
+"Morrison, Harry",Hawthorn,MID,62,Gather,3,Clearance,3,Drive,3,25.0
+"Sonsie, Tyler",Richmond,MID,62,Gather,3,Clearance,3,Drive,3,23.0
+"Lord, Cooper",Carlton,MID,62,Gather,2,Clearance,3,Drive,3,21.5
+"Lefau, Mykelti",Richmond,FWD,62,Lead,3,Mark in front,4,Finish,2,21.5
+"Clark, Jhye",Geelong,MID,62,Gather,3,Clearance,3,Drive,3,14.0
+"Boxshall, Hugh",St Kilda,MID,62,Gather,3,Clearance,3,Drive,2,15.5
+"Starcevich, Brandon",West Coast,DEF,62,Spoil,3,Mark,1,Rebound,4,18.0
+"Cootee, Billy",Sydney,FWD,62,Lead,3,Mark in front,2,Finish,3,11.0
+"Cochrane, Tom",Port Adelaide,FWD,62,Lead,3,Mark in front,3,Finish,2,4.5
+"Peucker, Zane",Richmond,MID,62,Gather,2,Clearance,3,Drive,3,2.0
+"Johnson, Aidan",Melbourne,MID,62,Gather,3,Clearance,3,Drive,2,3.5
+"Goad, Taylor",North Melbourne,RUC,62,Tap,2,Follow-up,2,Pressure,3,2.0
+"Milera, Wayne",Adelaide,MID,61,Gather,3,Clearance,3,Drive,2,32.0
+"McCarthy, Tom",West Coast,MID,61,Gather,3,Clearance,3,Drive,2,27.0
+"Serong, Jai",Sydney,DEF,61,Spoil,3,Mark,3,Rebound,2,24.0
+"Mullin, Oisin",Geelong,MID,61,Gather,3,Clearance,3,Drive,2,37.5
+"Rivers, Trent",Melbourne,MID,61,Gather,3,Clearance,3,Drive,3,28.5
+"Wood, Mason",St Kilda,DEF,61,Spoil,3,Mark,5,Rebound,1,30.5
+"Acres, Blake",Carlton,MID,61,Gather,2,Clearance,3,Drive,3,21.5
+"Borlase, James",Adelaide,DEF,61,Spoil,5,Mark,1,Rebound,2,20.0
+"Weller, Lachie",Gold Coast,MID,61,Gather,2,Clearance,3,Drive,3,20.5
+"Lake, Campbell",St Kilda,MID,61,Gather,3,Clearance,3,Drive,2,10.0
+"McCarthy, Lincoln",Brisbane Lions,FWD,61,Lead,3,Mark in front,3,Finish,2,8.0
+"Pedlar, Luke",Adelaide,FWD,61,Lead,3,Mark in front,3,Finish,3,14.5
+"Ison, Jack",Carlton,MID,61,Gather,3,Clearance,2,Drive,3,8.0
+"Greeves, Ollie",Hawthorn,MID,61,Gather,3,Clearance,3,Drive,2,4.0
+"Reidy, Liam",Carlton,RUC,61,Tap,2,Follow-up,2,Pressure,3,4.5
+"Beattie, Max",Hawthorn,FWD,61,Lead,3,Mark in front,3,Finish,3,4.0
+"Ramsden, Max",Hawthorn,MID,61,Gather,3,Clearance,3,Drive,2,4.0
+"Ludowyke, Archie",Adelaide,MID,61,Gather,3,Clearance,3,Drive,2,2.0
+"McLachlan, Will",Brisbane Lions,FWD,61,Lead,3,Mark in front,3,Finish,3,4.0
+"Laird, Rory",Adelaide,MID,60,Gather,3,Clearance,3,Drive,2,31.0
+"Moore, Dylan",Hawthorn,FWD,60,Lead,3,Mark in front,3,Finish,3,37.0
+"Mannagh, Shaun",Geelong,FWD,60,Lead,2,Mark in front,2,Finish,4,36.5
+"Zorko, Dayne",Brisbane Lions,MID,60,Gather,2,Clearance,3,Drive,3,30.5
+"McGrath, Andrew",Essendon,DEF,60,Spoil,2,Mark,2,Rebound,4,31.5
+"McVee, Judd",Fremantle,DEF,60,Spoil,3,Mark,2,Rebound,3,32.5
+"Switkowski, Sam",Fremantle,MID,60,Gather,2,Clearance,3,Drive,3,34.5
+"Howes, Blake",Melbourne,DEF,60,Spoil,3,Mark,3,Rebound,2,26.0
+"De Koning, Tom",St Kilda,RUC,60,Tap,3,Follow-up,4,Pressure,2,31.0
+"Edwards, Mitchell",Geelong,RUC,60,Tap,3,Follow-up,3,Pressure,2,20.0
+"Rowston, Harry",Greater Western Sydney,MID,60,Gather,2,Clearance,3,Drive,3,17.0
+"Melican, Lewis",Sydney,DEF,60,Spoil,4,Mark,2,Rebound,2,19.5
+"Duursma, Zane",North Melbourne,FWD,60,Lead,3,Mark in front,3,Finish,2,20.0
+"Ah Chee, Callum",Adelaide,FWD,60,Lead,3,Mark in front,3,Finish,3,22.0
+"Burton, Tom",Richmond,MID,60,Gather,2,Clearance,3,Drive,3,5.0
+"Annable, Daniel",Brisbane Lions,MID,60,Gather,2,Clearance,3,Drive,3,3.0
+"Ladhams, Peter",Sydney,RUC,60,Tap,2,Follow-up,4,Pressure,2,7.0
+"Whitlock, Matt",North Melbourne,FWD,60,Lead,3,Mark in front,3,Finish,2,4.0
+"Angove, Cody",Greater Western Sydney,FWD,60,Lead,2,Mark in front,3,Finish,3,3.0
+"Hill, Bradley",St Kilda,MID,59,Gather,2,Clearance,2,Drive,4,34.0
+"Langdon, Ed",Melbourne,DEF,59,Spoil,2,Mark,4,Rebound,2,35.5
+"Stephens, Dylan",North Melbourne,DEF,59,Spoil,2,Mark,4,Rebound,2,34.0
+"Langford, Harvey",Melbourne,FWD,59,Lead,2,Mark in front,3,Finish,2,35.0
+"Draper, Sam",Brisbane Lions,RUC,59,Tap,3,Follow-up,4,Pressure,1,28.5
+"Gothard, Phoenix",Greater Western Sydney,FWD,59,Lead,3,Mark in front,2,Finish,3,16.0
+"Anderson, Angus",Collingwood,FWD,59,Lead,2,Mark in front,2,Finish,3,17.0
+"Gallop, Ty",Brisbane Lions,DEF,59,Spoil,4,Mark,2,Rebound,1,24.0
+"Cleary, Caiden",Sydney,MID,59,Gather,3,Clearance,3,Drive,2,17.0
+"Johnson, Zak",Essendon,DEF,59,Spoil,3,Mark,2,Rebound,2,11.5
+"Kennedy, Luke",Western Bulldogs,MID,59,Gather,3,Clearance,3,Drive,2,8.0
+"Dattoli, Jesse",Sydney,FWD,59,Lead,3,Mark in front,3,Finish,2,6.5
+"El Achkar, Hussien",Essendon,FWD,59,Lead,2,Mark in front,2,Finish,3,9.0
+"Zadow, Mitch",Port Adelaide,FWD,59,Lead,3,Mark in front,2,Finish,3,9.0
+"Dovaston, Lachy",North Melbourne,MID,59,Gather,2,Clearance,3,Drive,3,6.0
+"Knevitt, Mitch",Geelong,FWD,59,Lead,2,Mark in front,3,Finish,2,5.5
+"Taylor, Xavier",Melbourne,DEF,59,Spoil,4,Mark,1,Rebound,3,3.0
+"Lewis, Caleb",Gold Coast,MID,59,Gather,2,Clearance,3,Drive,2,2.0
+"Whitfield, Lachie",Greater Western Sydney,MID,58,Gather,2,Clearance,2,Drive,3,32.5
+"Wilmot, Darcy",Brisbane Lions,MID,58,Gather,3,Clearance,3,Drive,2,40.5
+"Duursma, Xavier",Essendon,MID,58,Gather,3,Clearance,3,Drive,2,29.0
+"Herbert, Marcus",West Coast,MID,58,Gather,3,Clearance,3,Drive,2,10.0
+"Byrne, Talor",Carlton,FWD,58,Lead,3,Mark in front,3,Finish,2,20.0
+"Watkins, Jack",Port Adelaide,MID,58,Gather,2,Clearance,3,Drive,3,11.0
+"Duff-Tytler, Cooper",West Coast,MID,58,Gather,2,Clearance,3,Drive,2,16.0
+"Weightman, Cody",Western Bulldogs,FWD,58,Lead,3,Mark in front,3,Finish,2,11.0
+"Cox, Nik",Essendon,MID,58,Gather,2,Clearance,3,Drive,2,8.0
+"Banch, Zac",North Melbourne,FWD,58,Lead,3,Mark in front,3,Finish,2,10.0
+"Artemis, Jaxon",Essendon,DEF,58,Spoil,3,Mark,2,Rebound,3,6.0
+"Hamilton, Riley",Greater Western Sydney,FWD,58,Lead,3,Mark in front,3,Finish,2,8.0
+"Cripps, Jamie",West Coast,FWD,58,Lead,2,Mark in front,3,Finish,3,15.5
+"Heath, Max",Melbourne,RUC,58,Tap,2,Follow-up,2,Pressure,3,9.0
+"Ryan, Samson",Richmond,RUC,58,Tap,2,Follow-up,2,Pressure,3,7.0
+"Gross, Tom",West Coast,MID,58,Gather,2,Clearance,3,Drive,2,8.0
+"Zakostelsky, Zane",Brisbane Lions,RUC,58,Tap,2,Follow-up,2,Pressure,3,3.0
+"Fisher, Zac",North Melbourne,MID,58,Gather,3,Clearance,3,Drive,2,4.5
+"Carmichael, Lachlan",Western Bulldogs,MID,58,Gather,2,Clearance,3,Drive,3,2.0
+"Noble, John",Gold Coast,MID,57,Gather,2,Clearance,2,Drive,3,35.5
+"Impey, Jarman",Hawthorn,MID,57,Gather,2,Clearance,2,Drive,3,35.0
+"Campbell, Seth",Richmond,FWD,57,Lead,2,Mark in front,3,Finish,3,34.0
+"Banks, Sam",Richmond,DEF,57,Spoil,1,Mark,2,Rebound,4,29.0
+"Carroll, Jack",St Kilda,DEF,57,Spoil,2,Mark,3,Rebound,2,13.5
+"Mackinlay, Ewan",Port Adelaide,MID,57,Gather,2,Clearance,3,Drive,3,14.5
+"Harvey, Cooper",North Melbourne,DEF,57,Spoil,2,Mark,3,Rebound,2,10.5
+"Bamert, Xavier",Port Adelaide,FWD,57,Lead,3,Mark in front,2,Finish,2,10.0
+"Visentini, Dante",Port Adelaide,RUC,57,Tap,2,Follow-up,2,Pressure,3,19.0
+"Henry, Liam",St Kilda,FWD,57,Lead,3,Mark in front,2,Finish,2,11.0
+"Aleer, Leek",Greater Western Sydney,RUC,57,Tap,2,Follow-up,2,Pressure,4,13.5
+"Hannaford, Oliver",Greater Western Sydney,MID,57,Gather,2,Clearance,3,Drive,2,5.0
+"Patterson, Dylan",Gold Coast,FWD,57,Lead,2,Mark in front,3,Finish,2,5.0
+"McCabe, Will",Hawthorn,MID,57,Gather,2,Clearance,3,Drive,3,4.0
+"Gallagher, Harvey",Western Bulldogs,MID,57,Gather,2,Clearance,3,Drive,3,5.5
+"Unwin, Rhys",Essendon,MID,57,Gather,2,Clearance,3,Drive,2,5.5
+"Young, Flynn",Carlton,FWD,57,Lead,2,Mark in front,3,Finish,2,7.0
+"Van Wyk, Alex",Port Adelaide,RUC,57,Tap,2,Follow-up,3,Pressure,2,3.0
+"Dale, Bailey",Western Bulldogs,MID,56,Gather,3,Clearance,2,Drive,2,31.5
+"Houston, Dan",Collingwood,MID,56,Gather,2,Clearance,2,Drive,2,34.5
+"Sicily, James",Hawthorn,MID,56,Gather,3,Clearance,1,Drive,2,35.5
+"McKercher, Colby",North Melbourne,MID,56,Gather,1,Clearance,3,Drive,3,34.5
+"Byrne-Jones, Darcy",Port Adelaide,MID,56,Gather,3,Clearance,2,Drive,2,33.0
+"OConnor, Mark",Geelong,DEF,56,Spoil,3,Mark,3,Rebound,1,34.5
+"Langford, Kyle",Essendon,DEF,56,Spoil,3,Mark,3,Rebound,1,23.5
+"Cumming, Isaac",Adelaide,DEF,56,Spoil,3,Mark,2,Rebound,2,29.0
+"Pearce, Alex",Fremantle,DEF,56,Spoil,4,Mark,2,Rebound,1,32.0
+"Close, Brad",Geelong,FWD,56,Lead,3,Mark in front,3,Finish,2,31.0
+"Marshall, Todd",Port Adelaide,DEF,56,Spoil,2,Mark,3,Rebound,2,15.0
+"Young, Lewis",Carlton,DEF,56,Spoil,4,Mark,2,Rebound,1,20.5
+"Hamling, Joel",Sydney,DEF,56,Spoil,4,Mark,1,Rebound,1,18.0
+"Maginness, Finn",Hawthorn,MID,56,Gather,3,Clearance,2,Drive,2,12.5
+"Hayes-Brown, Oliver",Richmond,RUC,56,Tap,2,Follow-up,4,Pressure,1,7.0
+"Lorenz, Will",Port Adelaide,DEF,56,Spoil,3,Mark,2,Rebound,3,6.0
+"Newton, Jacob",West Coast,MID,56,Gather,2,Clearance,3,Drive,2,4.0
+"Kentfield, Luker",Melbourne,MID,56,Gather,2,Clearance,3,Drive,2,3.0
+"Banfield, Bailey",Fremantle,DEF,56,Spoil,3,Mark,1,Rebound,3,11.5
+"Daniel, Caleb",North Melbourne,MID,55,Gather,2,Clearance,3,Drive,2,34.5
+"Rioli, Daniel",Gold Coast,DEF,55,Spoil,2,Mark,2,Rebound,3,30.0
+"Hough, Brady",West Coast,DEF,55,Spoil,3,Mark,3,Rebound,2,34.0
+"Dudley, Isaiah",Fremantle,FWD,55,Lead,2,Mark in front,2,Finish,3,35.0
+"Maric, Ryan",West Coast,MID,55,Gather,2,Clearance,2,Drive,2,23.0
+"Carroll, Matt",Carlton,FWD,55,Lead,2,Mark in front,3,Finish,2,18.5
+"Butler, Sam",Hawthorn,MID,55,Gather,2,Clearance,3,Drive,2,11.0
+"Scerri, Chris",Fremantle,MID,55,Gather,3,Clearance,2,Drive,2,9.0
+"Hanily, Tom",Sydney,FWD,55,Lead,2,Mark in front,3,Finish,2,11.0
+"Anastasopoulos, Tom",Port Adelaide,MID,55,Gather,2,Clearance,3,Drive,3,5.0
+"Dalton, Jack",Hawthorn,FWD,55,Lead,2,Mark in front,3,Finish,2,5.0
+"Parker, Wil",Collingwood,DEF,55,Spoil,3,Mark,2,Rebound,2,7.0
+"Chesser, Campbell",Carlton,DEF,55,Spoil,3,Mark,2,Rebound,2,5.0
+"Clarke, Judson",Richmond,DEF,55,Spoil,3,Mark,2,Rebound,2,3.0
+"Fogarty, Lachie",Carlton,MID,55,Gather,3,Clearance,2,Drive,2,12.0
+"Mills, Callum",Sydney,MID,54,Gather,3,Clearance,2,Drive,2,29.0
+"Ginnivan, Jack",Hawthorn,FWD,54,Lead,2,Mark in front,2,Finish,3,36.5
+"Tholstrup, Koltyn",Melbourne,DEF,54,Spoil,2,Mark,1,Rebound,3,28.5
+"Budarick, Connor",Western Bulldogs,DEF,54,Spoil,2,Mark,2,Rebound,2,25.5
+"Perkins, Archie",Essendon,MID,54,Gather,2,Clearance,2,Drive,3,26.5
+"Baker, Oskar",Western Bulldogs,FWD,54,Lead,2,Mark in front,3,Finish,2,13.5
+"Butler, Dan",St Kilda,FWD,54,Lead,2,Mark in front,3,Finish,2,13.0
+"Hardeman, Riley",North Melbourne,DEF,54,Spoil,3,Mark,1,Rebound,3,15.5
+"Dawson, Wil",North Melbourne,RUC,54,Tap,2,Follow-up,2,Pressure,3,12.5
+"Warner, Corey",Sydney,MID,54,Gather,1,Clearance,2,Drive,3,12.0
+"Hutchinson, Jack",West Coast,MID,54,Gather,2,Clearance,3,Drive,2,14.0
+"Vandermeer, Laitham",Western Bulldogs,MID,54,Gather,2,Clearance,2,Drive,3,11.5
+"Hinge, Mitch",Adelaide,MID,54,Gather,2,Clearance,3,Drive,2,13.0
+"Duursma, Willem",West Coast,FWD,53,Lead,2,Mark in front,3,Finish,2,22.0
+"Davis, Hamish",West Coast,MID,53,Gather,2,Clearance,3,Drive,2,25.0
+"Byrnes, Ryan",St Kilda,DEF,53,Spoil,2,Mark,3,Rebound,2,23.5
+"Lobb, Rory",Western Bulldogs,RUC,53,Tap,2,Follow-up,2,Pressure,3,33.5
+"Davidson, Sam",Western Bulldogs,MID,53,Gather,2,Clearance,2,Drive,2,27.5
+"Gulbin, Lachlan",Gold Coast,MID,53,Gather,2,Clearance,2,Drive,3,11.5
+"Riccardi, Jake",Greater Western Sydney,RUC,53,Tap,2,Follow-up,2,Pressure,3,19.0
+"Hollands, Elijah",Carlton,FWD,53,Lead,2,Mark in front,3,Finish,2,8.5
+"Holman, Nick",Gold Coast,MID,53,Gather,2,Clearance,3,Drive,1,15.0
+"Steene, Oscar",Collingwood,RUC,53,Tap,2,Follow-up,2,Pressure,2,8.0
+"Schoenberg, Harry",West Coast,MID,53,Gather,2,Clearance,3,Drive,2,5.5
+"Emmett, Louis",Western Bulldogs,MID,53,Gather,2,Clearance,3,Drive,2,7.0
+"Keeler, Isaac",St Kilda,MID,53,Gather,2,Clearance,3,Drive,2,7.5
+"Worrell, Josh",Adelaide,MID,52,Gather,3,Clearance,2,Drive,1,36.5
+"Sidebottom, Steele",Collingwood,DEF,52,Spoil,2,Mark,3,Rebound,2,32.5
+"Wicks, Sam",Sydney,DEF,52,Spoil,2,Mark,1,Rebound,4,30.5
+"Curtin, Daniel",Adelaide,DEF,52,Spoil,3,Mark,2,Rebound,1,30.5
+"Harrison, Harvey",Collingwood,MID,52,Gather,1,Clearance,3,Drive,3,12.0
+"Lindsay, Xavier",Melbourne,DEF,52,Spoil,2,Mark,1,Rebound,3,16.0
+"Konstanty, Jacob",North Melbourne,FWD,52,Lead,2,Mark in front,3,Finish,2,21.5
+"Delana, Josaia",Greater Western Sydney,MID,52,Gather,2,Clearance,3,Drive,2,10.5
+"Murray, Toby",Adelaide,RUC,52,Tap,2,Follow-up,2,Pressure,3,13.0
+"Rioli, Maurice",Richmond,MID,52,Gather,2,Clearance,2,Drive,2,16.5
+"Nguyen, Jayden",Essendon,MID,52,Gather,2,Clearance,3,Drive,2,7.5
+"Fiorini, Brayden",Essendon,FWD,52,Lead,2,Mark in front,2,Finish,2,11.0
+"Sharp, Jeremy",Fremantle,FWD,52,Lead,2,Mark in front,2,Finish,2,9.0
+"Uwland, Bodhi",Gold Coast,MID,51,Gather,3,Clearance,2,Drive,2,35.5
+"Amon, Karl",Hawthorn,MID,51,Gather,1,Clearance,2,Drive,3,32.5
+"Hynes, Cooper",Western Bulldogs,MID,51,Gather,2,Clearance,2,Drive,2,27.0
+"Wagner, Corey",Fremantle,DEF,51,Spoil,2,Mark,1,Rebound,3,24.5
+"Cumming, Sam",Richmond,FWD,51,Lead,2,Mark in front,3,Finish,2,14.0
+"Wiltshire, Oliver",Geelong,FWD,51,Lead,2,Mark in front,2,Finish,2,17.0
+"Clark, Hunter",St Kilda,DEF,51,Spoil,2,Mark,2,Rebound,2,13.5
+"Clarke, Angus",Essendon,FWD,51,Lead,2,Mark in front,3,Finish,2,13.0
+"Nairn, Cameron",Hawthorn,MID,51,Gather,2,Clearance,3,Drive,2,4.0
+"Coleman-Jones, Callum",North Melbourne,RUC,51,Tap,2,Follow-up,2,Pressure,2,5.5
+"OBrien, Balyn",Port Adelaide,MID,51,Gather,2,Clearance,3,Drive,1,6.0
+"Curtin, Cody",Brisbane Lions,MID,51,Gather,2,Clearance,3,Drive,2,4.0
+"Walker, Brandon",Fremantle,DEF,51,Spoil,3,Mark,1,Rebound,2,3.0
+"Bramble, Lachlan",Western Bulldogs,DEF,50,Spoil,2,Mark,2,Rebound,3,36.5
+"Chandler, Kade",Melbourne,FWD,50,Lead,2,Mark in front,2,Finish,2,34.5
+"Baker, Liam",West Coast,DEF,50,Spoil,2,Mark,1,Rebound,2,31.5
+"Allan, Bo",West Coast,MID,50,Gather,2,Clearance,3,Drive,2,22.0
+"Bowes, Jack",Geelong,FWD,50,Lead,1,Mark in front,3,Finish,2,19.5
+"Campbell, Braeden",Sydney,FWD,50,Lead,2,Mark in front,2,Finish,2,19.5
+"Murray, Jai",Gold Coast,DEF,50,Spoil,2,Mark,2,Rebound,2,9.0
+"Cross, Paddy",Melbourne,MID,50,Gather,2,Clearance,2,Drive,2,11.0
+"Perez, Flynn",Hawthorn,MID,50,Gather,2,Clearance,2,Drive,2,7.0
+"Hayes, Will",Collingwood,FWD,50,Lead,1,Mark in front,2,Finish,2,11.0
+"Oliver, Harrison",Greater Western Sydney,MID,50,Gather,1,Clearance,3,Drive,2,5.0
+"Sullivan, Lachlan",Collingwood,FWD,50,Lead,2,Mark in front,2,Finish,2,9.0
+"OKeeffe, Hudson",Carlton,RUC,50,Tap,2,Follow-up,2,Pressure,2,5.5
+"Humphries, Lawson",Geelong,MID,49,Gather,2,Clearance,2,Drive,2,36.5
+"Short, Jayden",Richmond,MID,49,Gather,1,Clearance,2,Drive,3,28.5
+"McKenna, Conor",Brisbane Lions,FWD,49,Lead,1,Mark in front,2,Finish,3,23.5
+"Cole, Tom",West Coast,MID,49,Gather,2,Clearance,2,Drive,2,26.0
+"Moraes, Christian",Port Adelaide,MID,49,Gather,2,Clearance,2,Drive,2,19.0
+"Dolan, Josh",Western Bulldogs,MID,49,Gather,2,Clearance,2,Drive,2,18.5
+"Rogers, Jake",Gold Coast,MID,49,Gather,2,Clearance,2,Drive,2,13.5
+"Bond, Hugh",Adelaide,DEF,49,Spoil,3,Mark,1,Rebound,2,9.5
+"Gresham, Jade",Essendon,FWD,49,Lead,2,Mark in front,2,Finish,2,16.5
+"Jones, Harry",Essendon,DEF,49,Spoil,3,Mark,2,Rebound,1,10.5
+"Champion, Malakai",West Coast,MID,49,Gather,2,Clearance,2,Drive,2,9.0
+"Scott, Bailey",North Melbourne,MID,49,Gather,1,Clearance,2,Drive,2,9.0
+"Stewart, Tom",Geelong,MID,48,Gather,3,Clearance,2,Drive,1,33.0
+"Bice, Riley",Sydney,MID,48,Gather,2,Clearance,2,Drive,2,28.0
+"Cook, Brayden",Adelaide,DEF,48,Spoil,2,Mark,2,Rebound,2,25.5
+"Murdock, Milan",West Coast,FWD,48,Lead,1,Mark in front,2,Finish,3,20.0
+"McCluggage, Hugh",Brisbane Lions,FWD,48,Lead,2,Mark in front,2,Finish,2,30.5
+"Grlj, Sam",Richmond,MID,48,Gather,1,Clearance,2,Drive,2,21.0
+"Trezise, James",Richmond,DEF,48,Spoil,2,Mark,2,Rebound,1,22.0
+"Tunstill, James",Brisbane Lions,MID,48,Gather,2,Clearance,2,Drive,2,12.5
+"Kyle, Harry",Sydney,DEF,48,Spoil,3,Mark,1,Rebound,2,12.0
+"Ryan, Bodie",Hawthorn,MID,48,Gather,1,Clearance,3,Drive,2,5.0
+"Gardner, Ryan",Western Bulldogs,MID,48,Gather,2,Clearance,3,Drive,1,4.5
+"Farrar, Jy",Gold Coast,MID,48,Gather,2,Clearance,2,Drive,2,7.0
+"Guelfi, Matt",Essendon,MID,48,Gather,2,Clearance,2,Drive,2,9.0
+"Idun, Connor",Greater Western Sydney,MID,47,Gather,3,Clearance,2,Drive,1,35.0
+"Lloyd, Jake",Sydney,FWD,47,Lead,2,Mark in front,2,Finish,2,36.0
+"Neal-Bullen, Alex",Adelaide,FWD,47,Lead,2,Mark in front,2,Finish,2,35.5
+"Uwland, Zeke",Gold Coast,DEF,47,Spoil,1,Mark,2,Rebound,2,17.0
+"Green, Steely",Richmond,FWD,47,Lead,2,Mark in front,2,Finish,2,29.5
+"Wright, Peter",Essendon,RUC,47,Tap,2,Follow-up,2,Pressure,2,27.5
+"Clohesy, Sam",Gold Coast,DEF,47,Spoil,2,Mark,2,Rebound,1,19.0
+"Williams, Zac",Carlton,DEF,47,Spoil,2,Mark,1,Rebound,2,18.5
+"Blakiston, Lachlan",Essendon,RUC,47,Tap,2,Follow-up,2,Pressure,2,22.5
+"Rosas, Malcolm",Sydney,FWD,47,Lead,2,Mark in front,2,Finish,2,18.0
+"Pickett, Latrelle",Melbourne,FWD,47,Lead,1,Mark in front,2,Finish,2,16.0
+"Stone, Conor",Greater Western Sydney,MID,47,Gather,2,Clearance,2,Drive,2,13.5
+"Reid, Archer",West Coast,MID,47,Gather,2,Clearance,3,Drive,1,13.0
+"Coniglio, Stephen",Greater Western Sydney,FWD,46,Lead,1,Mark in front,3,Finish,2,26.0
+"Newman, Nic",Carlton,MID,46,Gather,1,Clearance,2,Drive,2,16.0
+"Sharp, Harry",Melbourne,FWD,46,Lead,2,Mark in front,1,Finish,2,33.0
+"Blamires, Tom",North Melbourne,DEF,46,Spoil,2,Mark,1,Rebound,2,17.0
+"Bedford, Toby",Greater Western Sydney,FWD,46,Lead,2,Mark in front,2,Finish,2,28.5
+"Laurie, Bailey",Melbourne,FWD,46,Lead,2,Mark in front,2,Finish,2,17.5
+"Kako, Isaac",Essendon,FWD,46,Lead,2,Mark in front,2,Finish,2,26.5
+"Cox, Mason",Fremantle,RUC,46,Tap,2,Follow-up,2,Pressure,1,25.0
+"McNeil, Lachlan",Western Bulldogs,MID,46,Gather,2,Clearance,2,Drive,1,21.5
+"Travaglia, Tobie",St Kilda,MID,46,Gather,2,Clearance,3,Drive,1,13.0
+"Leake, James",Greater Western Sydney,DEF,46,Spoil,3,Mark,1,Rebound,1,6.5
+"Ramm, Harrison",Port Adelaide,MID,46,Gather,1,Clearance,2,Drive,2,6.5
+"Cleary, Luke",Western Bulldogs,MID,46,Gather,2,Clearance,2,Drive,1,10.0
+"Lombard, Leo",Gold Coast,FWD,45,Lead,2,Mark in front,2,Finish,2,25.0
+"ODriscoll, Nathan",Fremantle,DEF,45,Spoil,2,Mark,2,Rebound,1,24.0
+"Reville, Bruce",Brisbane Lions,DEF,45,Spoil,1,Mark,3,Rebound,1,24.5
+"Steele, Roan",Collingwood,FWD,45,Lead,1,Mark in front,2,Finish,2,21.5
+"Trembath, Cooper",North Melbourne,RUC,45,Tap,1,Follow-up,1,Pressure,3,24.5
+"Wehr, Jacob",Port Adelaide,DEF,45,Spoil,2,Mark,1,Rebound,2,24.0
+"McAuliffe, Kane",Richmond,DEF,45,Spoil,2,Mark,1,Rebound,2,12.5
+"El-Hawli, Saad",Essendon,DEF,45,Spoil,2,Mark,2,Rebound,1,12.5
+"Johnston, Harvey",West Coast,MID,45,Gather,1,Clearance,2,Drive,1,8.0
+"Jepson, Ben",Gold Coast,DEF,45,Spoil,2,Mark,2,Rebound,2,5.5
+"Marshall, Sam",Brisbane Lions,DEF,45,Spoil,2,Mark,1,Rebound,2,7.5
+"Armstrong, Harry",Richmond,MID,45,Gather,1,Clearance,2,Drive,2,8.0
+"Lord, Ollie",Port Adelaide,RUC,45,Tap,2,Follow-up,2,Pressure,2,8.5
+"Wilkie, Callum",St Kilda,MID,44,Gather,3,Clearance,1,Drive,1,34.5
+"Erasmus, Neil",Fremantle,DEF,44,Spoil,1,Mark,2,Rebound,2,35.0
+"Thomas, Harvey",Greater Western Sydney,DEF,44,Spoil,2,Mark,1,Rebound,2,31.0
+"Angwin, Ryan",Greater Western Sydney,DEF,44,Spoil,2,Mark,1,Rebound,2,25.0
+"Nankervis, Luke",Adelaide,DEF,44,Spoil,2,Mark,1,Rebound,1,21.5
+"De Koning, Sam",Geelong,RUC,44,Tap,2,Follow-up,2,Pressure,1,30.5
+"Taylor, Zac",Adelaide,FWD,44,Lead,1,Mark in front,3,Finish,1,30.5
+"Spargo, Charlie",North Melbourne,FWD,44,Lead,2,Mark in front,2,Finish,1,24.0
+"Day-Wicks, Archer",Essendon,MID,44,Gather,1,Clearance,2,Drive,2,23.5
+"Balta, Noah",Richmond,RUC,44,Tap,2,Follow-up,2,Pressure,1,23.5
+"Kondogiannis, Max",Essendon,MID,44,Gather,1,Clearance,2,Drive,1,12.0
+"McLean, Hayden",Sydney,RUC,44,Tap,2,Follow-up,2,Pressure,2,21.5
+"Jones, Chayce",Adelaide,DEF,44,Spoil,2,Mark,1,Rebound,2,5.5
+"McCreery, Beau",Collingwood,FWD,43,Lead,1,Mark in front,2,Finish,1,32.5
+"Berry, Joe",Port Adelaide,FWD,43,Lead,1,Mark in front,2,Finish,1,29.0
+"Cunningham, Harry",Sydney,MID,43,Gather,1,Clearance,2,Drive,1,19.5
+"Macdonald, Bailey",Hawthorn,MID,43,Gather,1,Clearance,2,Drive,1,17.0
+"McKay, Ben",Essendon,MID,43,Gather,2,Clearance,2,Drive,1,20.0
+"OConnell, Liam",St Kilda,DEF,43,Spoil,2,Mark,1,Rebound,1,16.5
+"Caminiti, Anthony",St Kilda,MID,43,Gather,2,Clearance,1,Drive,1,29.5
+"Mead, Jackson",Port Adelaide,DEF,43,Spoil,2,Mark,1,Rebound,1,20.0
+"McMullin, Toby",Greater Western Sydney,DEF,43,Spoil,2,Mark,1,Rebound,2,13.5
+"Hastie, Angus",St Kilda,MID,43,Gather,1,Clearance,2,Drive,2,11.5
+"Tauru, Alix",St Kilda,MID,43,Gather,2,Clearance,2,Drive,1,14.0
+"Puncher, Liam",Collingwood,MID,43,Gather,1,Clearance,2,Drive,1,8.0
+"Edwards, Harry",West Coast,MID,43,Gather,1,Clearance,2,Drive,1,10.0
+"Ashcroft, Levi",Brisbane Lions,FWD,42,Lead,1,Mark in front,2,Finish,1,40.5
+"Graham, Jack",West Coast,DEF,42,Spoil,1,Mark,1,Rebound,1,22.0
+"OHalloran, Xavier",Greater Western Sydney,DEF,42,Spoil,2,Mark,1,Rebound,1,25.5
+"Henry, Jack",Geelong,MID,42,Gather,2,Clearance,1,Drive,1,31.5
+"Adams, Oscar",Gold Coast,MID,42,Gather,1,Clearance,1,Drive,1,17.0
+"Ballard, Charlie",Gold Coast,MID,42,Gather,1,Clearance,2,Drive,1,11.5
