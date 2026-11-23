@@ -26,6 +26,10 @@ jobs:
             curl -sS -L -A "$UA" --retry 2 -o "data/raw/cand_${name}.html" -w "%{http_code} $url\n" "$url"
             sleep 2
           done
+          for L in A B C D E F G H I J K L M N O P Q R S T U V W X Y Z; do
+            curl -sS -L -A "$UA" --retry 2 -o "data/raw/players_idx_${L}.html" "https://afltables.com/afl/stats/players${L}_idx.html"
+            sleep 1
+          done
           ls -la data/raw
 
       - name: Parse into CSV
