@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#ffe600">
+<meta name="theme-color" content="#14532a">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <title>AFL SuperCard</title>
@@ -225,6 +225,52 @@ html,body{background:#ffe600;font-family:'Space Grotesk',system-ui,sans-serif}
 .top{padding-top:34px}
 .mc .nm{font-size:calc(var(--w,90px)*.17)}
 .ban{font-size:22px}
+</style>
+<style>
+/* ===== FOOTY THEME: grass, cream, navy, gold, red ===== */
+:root{--gold:#f2b705;--blue:#d6243a;--cy:#f2b705;--pk:#d6243a;--bg:#14532a;--navy:#0b1f3a;--cream:#f3ecd8;--grass:repeating-linear-gradient(180deg,#1f7a38 0 56px,#1a6a30 56px 112px);--ht:none}
+.mc{--ht:radial-gradient(circle,rgba(0,0,0,.2) 1.6px,transparent 2px) 0 0/10px 10px}
+html,body,#app{background:#14532a}
+#sLine::before{left:0;right:0;top:0;bottom:0;clip-path:none;background:radial-gradient(circle at 50% 56%,transparent 0 92px,rgba(255,255,255,.5) 92px 95px,transparent 96px),var(--grass)}
+#sLine::after{left:14px;right:14px;top:14px;bottom:14px;border:3px solid rgba(255,255,255,.55);border-radius:26px}
+#sMatch::before{left:0;right:0;top:92px;bottom:0;background:var(--grass)}
+#sMatch::after{left:0;right:0;top:92px;bottom:0;clip-path:none;background:linear-gradient(transparent calc(50% - 1.5px),rgba(255,255,255,.5) calc(50% - 1.5px) calc(50% + 1.5px),transparent calc(50% + 1.5px)),radial-gradient(circle at 50% 50%,transparent 0 62px,rgba(255,255,255,.5) 62px 65px,transparent 66px),radial-gradient(120% 60% at 50% 50%,transparent 55%,rgba(0,0,0,.28))}
+#sRes::before{background:radial-gradient(circle at 50% 38%,rgba(255,255,255,.28),transparent 60%),var(--grass);opacity:1}
+#sRes::after{background:radial-gradient(110% 70% at 50% 40%,transparent 50%,rgba(0,0,0,.4))}
+.top h1{color:var(--gold)}
+.top p{color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.6)}
+.btn{background:var(--cream);color:var(--navy);border-color:var(--navy);box-shadow:7px 7px 0 var(--navy)}
+.btn.main{background:var(--gold);box-shadow:7px 7px 0 var(--navy);color:var(--navy)}
+.btn:active{box-shadow:2px 2px 0 var(--navy)}
+.slot .tag{background:var(--blue);border-color:#000}
+.tm{border-color:var(--navy)}
+.tm.me{background:var(--gold)}.tm.cpu{background:var(--blue);color:#fff}
+.tm.cpu small{color:#fff!important}
+.qb{background:var(--navy);color:var(--cream)}
+.sb{background:none}
+.ban{background:var(--cream);border-color:var(--navy);box-shadow:5px 5px 0 var(--navy)}
+.ban span{color:var(--blue)!important;-webkit-text-stroke:0}
+.pips i{border-color:var(--navy)}.pips i.m{background:var(--gold)}.pips i.c{background:var(--blue)}
+.pop .tx.g{background:var(--gold);color:#fff}.pop .tx.cg{background:var(--blue);color:#fff}.pop .tx.b{background:var(--cream);color:var(--navy)}
+.log div,.qs .l,.pr{background:var(--cream);border-color:var(--navy);box-shadow:4px 4px 0 var(--navy)}
+.log div{box-shadow:3px 3px 0 var(--navy)}
+.log .m b,.qs .l.m b{background:var(--gold);color:var(--navy)}
+.log .c b,.qs .l.c b{background:var(--blue);color:#fff}
+.big .bm{color:var(--gold)}.big .bc{color:#fff}.big .bv{color:#fff}
+.res .sc{color:#fff;-webkit-text-stroke:2px #000;paint-order:stroke fill;text-shadow:3px 3px 0 #000}
+.res .sc span{color:#fff;-webkit-text-stroke:0;text-shadow:0 2px 4px #000}
+.pill{background:var(--navy);color:var(--gold)}
+.sheet .box{background:var(--cream);border-color:var(--navy);box-shadow:0 -8px 0 var(--navy)}
+.sheet h3{color:var(--navy)}
+.mc.win{box-shadow:0 0 0 calc(var(--w,90px)*.03) var(--gold),0 0 0 calc(var(--w,90px)*.05) #000,0 0 30px var(--gold)}
+.mc.cwin{box-shadow:0 0 0 calc(var(--w,90px)*.03) var(--blue),0 0 0 calc(var(--w,90px)*.05) #000,0 0 30px var(--blue)}
+.dv.ov{background:linear-gradient(160deg,#ffe9a0,#f2b705 55%,#b88400)}
+.dv.on{background:linear-gradient(160deg,#fff,#f2b705 50%,#b88400);filter:drop-shadow(0 0 8px var(--gold))}.dv.on i{background:var(--gold)}
+.dv.on.bl{background:linear-gradient(160deg,#fff,#ff7a8a 50%,#9c1228);filter:drop-shadow(0 0 8px var(--blue))}.dv.on.bl i{background:var(--blue)}
+.sv b{color:var(--gold)}
+.mc .in{filter:saturate(.85) brightness(.9)}
+.mc.back .in::after{color:var(--gold)}
+.diamond{--bg:radial-gradient(70% 50% at 20% 25%,#c2287c,transparent 70%),radial-gradient(70% 50% at 85% 30%,#1fa5c8,transparent 70%),radial-gradient(80% 50% at 50% 80%,#d9a21f,transparent 70%),#140a2a}
 </style>
 </head>
 <body>
