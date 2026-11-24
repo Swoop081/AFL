@@ -12,8 +12,13 @@ def img(first,last):
     for ext in (".png",".jpg"):
         if (ROOT/"assets"/"players"/(b+ext)).exists(): return b+ext
     return ""
+# 2026 trade/free-agency moves for players in the data
+MOVED = {"Neale, Lachie":"Collingwood","Hogan, Jesse":"Collingwood","Greene, Toby":"Geelong","Butters, Zak":"Western Bulldogs"}
+EXCLUDE = {"Stringer, Jake"}   # delisted, no club yet
 by = {}
 for r in rows:
+    if r["player"] in EXCLUDE: continue
+    r["team"] = MOVED.get(r["player"], r["team"])
     first,last = nice(r["player"]); r["first"],r["last"] = first,last; r["img"] = img(first,last); r["o"] = int(r["overall"])
     by.setdefault(r["team"],[]).append(r)
 teams = sorted(by, key=lambda t: CODES[t])
