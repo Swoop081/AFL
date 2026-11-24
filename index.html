@@ -271,6 +271,16 @@ html,body,#app{background:#14532a}
 .mc .in{filter:saturate(.85) brightness(.9)}
 .mc.back .in::after{color:var(--gold)}
 .diamond{--bg:radial-gradient(70% 50% at 20% 25%,#c2287c,transparent 70%),radial-gradient(70% 50% at 85% 30%,#1fa5c8,transparent 70%),radial-gradient(80% 50% at 50% 80%,#d9a21f,transparent 70%),#140a2a}
+
+.vsr{display:flex;align-items:center;justify-content:center;gap:18px}
+.vsr img{filter:drop-shadow(4px 4px 0 rgba(0,0,0,.55));width:auto}
+.vsr b{font-family:var(--AN);font-weight:400;font-size:40px;color:#fff;-webkit-text-stroke:3px #000;paint-order:stroke fill;text-shadow:4px 4px 0 #000;rotate:-6deg}
+.tm.me::before,.tm.cpu::before{content:"";position:absolute;top:50%;width:46px;height:46px;margin-top:-23px;background:center/contain no-repeat}
+.tm.me::before{left:6px;background-image:url(assets/clubs/richmond.png)}
+.tm.cpu::before{right:6px;background-image:url(assets/clubs/essendon.png)}
+.tm.me small,.tm.me span{left:58px}.tm.cpu small,.tm.cpu span{right:58px}
+.tm.me,.tm.cpu{padding:0 12px}
+.tm.me{background:var(--gold)}.tm.cpu{background:#c9202f}
 </style>
 </head>
 <body>
@@ -283,9 +293,9 @@ html,body,#app{background:#14532a}
  </section>
  <section class="screen" id="sMatch">
   <div class="sb">
-   <div class="tm me"><small>YOUR TEAM</small><b id="sMe">0.0</b><span id="sMeT">0</span></div>
+   <div class="tm me"><small>RICHMOND</small><b id="sMe">0.0</b><span id="sMeT">0</span></div>
    <div class="qb" id="qb">Q1</div>
-   <div class="tm cpu"><small>CHALLENGERS</small><b id="sCpu">0.0</b><span id="sCpuT">0</span></div>
+   <div class="tm cpu"><small>ESSENDON</small><b id="sCpu">0.0</b><span id="sCpuT">0</span></div>
   </div>
   <div class="stage" id="stage"></div>
   <div class="bar-btns"><button class="btn main" id="go">CENTRE BOUNCE</button></div>
@@ -367,11 +377,12 @@ function shoot(team,gap,side){var mean=Math.max(.8,5.6*(1+.5*gap))*Math.exp(gaus
  for(var k=0;k<n;k++){var r=Math.random()*tot,i=0;while(i<6&&r>w[i]){r-=w[i];i++}
   var p=Math.max(.15,Math.min(.8,.32+.30*(team[i].s[S["Accuracy"]]-35)/64+gauss()*.07));ev.push({side:side,c:team[i],goal:Math.random()<p})}
  return ev}
+function vs(h){return'<div class="vsr"><img src="assets/clubs/richmond.png" style="height:'+h+'px" alt="Richmond"><b>V</b><img src="assets/clubs/essendon.png" style="height:'+Math.round(h*.8)+'px" alt="Essendon"></div>'}
 function frame(){$("stage").innerHTML='<div class="ttl" id="ttl"></div><div class="opp" id="opp"></div><div><div class="pips" id="pips"></div><div class="ban" id="ban"></div></div><div class="mine" id="mine"></div>'}
 /* ---------- start ---------- */
 function startMatch(){if(me.filter(Boolean).length<7)me=autoPick(POOL);
  cpu=autoPick(POOL.filter(function(c){return me.indexOf(c)<0}));newGame();scoreboard();show("sMatch");
- $("stage").innerHTML='<div class="ttl">FOUR QUARTERS</div><div class="qs" style="width:100%">'+LINES.map(function(l,i){return'<div class="l"><span>Q'+(i+1)+'</span><b>'+l.name+'</b></div>'}).join("")+'</div><div class="ban">Each quarter: 2 random stats, you pick the card<small>Bigger wins mean a bigger quarter score</small></div><div></div>';
+ $("stage").innerHTML=vs(110)+'<div class="ttl">FOUR QUARTERS</div><div class="qs" style="width:100%">'+LINES.map(function(l,i){return'<div class="l"><span>Q'+(i+1)+'</span><b>'+l.name+'</b></div>'}).join("")+'</div><div class="ban">Each quarter: 2 random stats, you pick the card<small>Bigger wins mean a bigger quarter score</small></div><div></div>';
  G.phase="start";buttons("FIRST BOUNCE ▶")}
 /* ---------- one quarter ---------- */
 function startQuarter(){G.q++;var ln=LINES[G.q-1];G.Q={ln:ln,stats:shuf(POS[ln.pos]).slice(0,2),res:[],my:lineOf(me,ln),cp:lineOf(cpu,ln)};scoreboard();frame();buttons(null);round(0)}
@@ -402,7 +413,7 @@ function tick(){var Q=G.Q;if(G.phase!=="skip")return;if(Q.i>=Q.ev.length){return
  var l=document.createElement("div");l.className=m?"m":"c";l.innerHTML='<span>'+e.c.last+(e.goal?' goal':' behind')+'</span><b>'+pts(G.me)+' – '+pts(G.cpu)+'</b>';var lg=$("log");lg.insertBefore(l,lg.firstChild);while(lg.children.length>3)lg.removeChild(lg.lastChild);
  later(560,tick)}
 function summary(){var Q=G.Q;G.phase="next";var last=G.q>=4,a=pts(G.me),b=pts(G.cpu);
- $("stage").innerHTML='<div class="ttl">'+QT[G.q-1]+'</div><div class="big"><span class="bm">'+Q.qo.me.g+'.'+Q.qo.me.b+'</span><span class="bv">v</span><span class="bc">'+Q.qo.cpu.g+'.'+Q.qo.cpu.b+'</span></div><div class="ttl">THIS QUARTER</div><div class="qs"><div class="l m"><span>YOUR TEAM</span><b>'+G.me.g+'.'+G.me.b+' ('+a+')</b></div><div class="l c"><span>CHALLENGERS</span><b>'+G.cpu.g+'.'+G.cpu.b+' ('+b+')</b></div></div><div class="ttl">'+(a>b?"YOU LEAD BY "+(a-b):a<b?"YOU TRAIL BY "+(b-a):"ALL SQUARE")+'</div><div></div>';
+ $("stage").innerHTML='<div class="ttl">'+QT[G.q-1]+'</div><div class="big"><span class="bm">'+Q.qo.me.g+'.'+Q.qo.me.b+'</span><span class="bv">v</span><span class="bc">'+Q.qo.cpu.g+'.'+Q.qo.cpu.b+'</span></div><div class="ttl">THIS QUARTER</div><div class="qs"><div class="l m"><span>RICHMOND</span><b>'+G.me.g+'.'+G.me.b+' ('+a+')</b></div><div class="l c"><span>ESSENDON</span><b>'+G.cpu.g+'.'+G.cpu.b+' ('+b+')</b></div></div><div class="ttl">'+(a>b?"YOU LEAD BY "+(a-b):a<b?"YOU TRAIL BY "+(b-a):"ALL SQUARE")+'</div><div></div>';
  buttons(last?"FULL TIME ▶":"QUARTER "+(G.q+1)+" · "+LINES[G.q].name+" ▶")}
 $("go").onclick=function(){var p=G.phase;
  if(p==="start"||p==="next"){if(p==="next"&&G.q>=4){G.done=true;scoreboard();finish()}else{G.phase="";startQuarter()}}
@@ -411,7 +422,7 @@ $("play").onclick=startMatch;
 function finish(){var a=pts(G.me),b=pts(G.cpu),res=a>b?"WIN":a<b?"LOSS":"DRAW",st=0;
  try{st=+localStorage.getItem("afl_streak")||0;st=res==="WIN"?st+1:res==="LOSS"?0:st;localStorage.setItem("afl_streak",st)}catch(e){}
  var all=Object.keys(G.scorers.me).map(function(n){return G.scorers.me[n]});all.sort(function(x,y){return y.g*6+y.b-(x.g*6+x.b)});
- $("resBody").innerHTML='<h2 style="color:'+(res==="WIN"?"var(--gold)":res==="LOSS"?"#ff6b6b":"#fff")+'">'+res+'</h2><div class="sc">'+G.me.g+'.'+G.me.b+' ('+a+') &nbsp;v&nbsp; '+G.cpu.g+'.'+G.cpu.b+' ('+b+')<span>'+(a===b?"Dead heat":"Margin "+Math.abs(a-b)+" points")+'</span></div>'
+ $("resBody").innerHTML=vs(64)+'<h2 style="color:'+(res==="WIN"?"var(--gold)":res==="LOSS"?"#ff6b6b":"#fff")+'">'+res+'</h2><div class="sc">'+G.me.g+'.'+G.me.b+' ('+a+') &nbsp;v&nbsp; '+G.cpu.g+'.'+G.cpu.b+' ('+b+')<span>'+(a===b?"Dead heat":"Margin "+Math.abs(a-b)+" points")+'</span></div>'
   +'<div class="tops">'+all.slice(0,3).map(function(o){return'<div style="text-align:center">'+card(o.c,106)+'<div class="pill" style="margin-top:8px">'+o.g+'.'+o.b+'</div></div>'}).join("")+'</div><div class="pill">WIN STREAK '+st+'</div>';
  show("sRes")}
 $("again").onclick=startMatch;
