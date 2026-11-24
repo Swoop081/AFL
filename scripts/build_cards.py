@@ -8,8 +8,10 @@ cols = [c for c in rows[0].keys() if c not in ("player","team","group","overall"
 def nice(n):
     last,_,first = n.partition(", "); return first.strip(), last.strip()
 def img(first,last):
-    f = f"{re.sub('[^a-z]','',last.lower())}-{first.lower()}.jpg"
-    return f if (ROOT/"assets"/"players"/f).exists() else ""
+    b = f"{re.sub('[^a-z]','',last.lower())}-{first.lower()}"
+    for ext in (".png",".jpg"):
+        if (ROOT/"assets"/"players"/(b+ext)).exists(): return b+ext
+    return ""
 by = {}
 for r in rows:
     first,last = nice(r["player"]); r["first"],r["last"] = first,last; r["img"] = img(first,last); r["o"] = int(r["overall"])
