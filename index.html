@@ -118,7 +118,7 @@ h1,h2,h3,p{margin:0}
 <body>
 <div id="app">
  <section class="screen on" id="sLine">
-  <div class="top"><h1>Set your 7</h1><p>Tap a card to swap. Centre is your ruck.</p></div>
+  <div class="top"><h1>Set your 7</h1><p>1 ruck, 2 mids, 2 backs, 2 forwards. Tap a card to swap.</p></div>
   <div class="form" id="form"></div>
   <div class="bar-btns" style="grid-template-columns:110px 1fr"><button class="btn" id="auto">AUTO</button><button class="btn main" id="play">PLAY MATCH ▶</button></div>
   <div class="sheet" id="sheet"><div class="box"><h3 id="shTitle"></h3><div class="list" id="shList"></div><button class="btn" id="shClose">CANCEL</button></div></div>
@@ -137,17 +137,12 @@ h1,h2,h3,p{margin:0}
   <div class="bar-btns"><button class="btn main" id="again">PLAY AGAIN</button><button class="btn" id="toLine">CHANGE LINE-UP</button></div>
  </section>
 </div>
-<script src="players.js"></script>
+<script src="cards.js"></script>
 <script>
 (function(){
-var ST=window.ST,PL=window.PL,S={};ST.forEach(function(n,i){S[n]=i});
-var GIVEN={"Toby Nankervis":"RUC","Marcus Bontempelli":"MID","Nick Vlastuin":"DEF","Jacob Hopper":"MID","Dion Prestia":"MID","Sam Lalor":"FWD","Jack Ross":"MID","Sam Banks":"DEF","Rhyan Mansell":"FWD","Jonty Faull":"FWD","Taj Hotton":"FWD","Luke Trainor":"DEF","Ben Miller":"DEF","Hugo Ralphsmith":"FWD","Tim Taranto":"MID","Jayden Short":"DEF","Maurice Rioli":"FWD","Josh Gibcus":"DEF","Tom Lynch":"FWD","Noah Balta":"DEF","Sam Cumming":"MID","Judson Clarke":"MID","Sam Grlj":"DEF"};
+var ST=window.ST,S={};ST.forEach(function(n,i){S[n]=i});
 function tierOf(o){return o>=90?"diamond":o>=85?"ruby":o>=80?"amethyst":o>=75?"sapphire":o>=70?"emerald":o>=65?"topaz":"quartz"}
-var POOL=[];
-PL.forEach(function(p,i){if(!GIVEN[p[0]])return;var pr=p[0].split(" "),f=pr[0],l=pr.slice(1).join(" ");
- POOL.push({id:POOL.length,name:p[0],first:f,last:l,pos:GIVEN[p[0]],o:p[3],s:p[4],t:tierOf(p[3]),
-  img:"assets/players/"+l.toLowerCase().replace(/[^a-z]/g,"")+"-"+f.toLowerCase()+".jpg",tall:/Bontempelli/.test(p[0])})});
-POOL.sort(function(a,b){return b.o-a.o});POOL.forEach(function(c,i){c.id=i});
+var POOL=window.CARDS.map(function(p,i){var pr=p[0].split(" "),f=pr[0],l=pr.slice(1).join(" ");return{id:i,name:p[0],first:f,last:l,club:p[1],pos:p[2],o:p[3],s:p[4],t:tierOf(p[3]),img:p[5]?"assets/players/"+p[5]:"",tall:/Bontempelli/.test(p[0])}});
 var ROLES=["FWD","FWD","MID","RUC","MID","DEF","DEF"];           // slot roles
 var LINEW=[1,1,.35,.35,.35,.05,.05];                              // who takes the shots
 var me=[null,null,null,null,null,null,null],cpu=null;
@@ -155,7 +150,7 @@ var $=function(i){return document.getElementById(i)};
 function show(id){["sLine","sMatch","sRes"].forEach(function(s){$(s).classList.toggle("on",s===id)})}
 function pick3(a){a=a.slice();var o=[];for(var i=0;i<3;i++)o.push(a.splice(Math.floor(Math.random()*a.length),1)[0]);return o}
 function card(c,w,tag,o){o=o||{};if(!c)return'<div class="mc" style="--w:'+w+'px"><div class="in"><div class="ini">+</div></div></div>';
- return'<div class="mc '+c.t+(o.cls?' '+o.cls:'')+'" style="--w:'+w+'px">'+(o.sv?'<div class="sv'+(o.c?' c':'')+'"><small>'+o.sv[0]+'</small><b>'+o.sv[1]+'</b></div>':'')+(tag?'<div class="tag">'+tag+'</div>':'')+'<div class="in"><div class="ini">'+c.first[0]+c.last[0]+'</div><div class="ph'+(c.tall?' tall':'')+'" style="background-image:url('+c.img+')"></div><div class="sh"></div><div class="ov">'+c.o+'</div><div class="ps">'+c.pos+'</div><div class="nm">'+c.last+'</div></div></div>'}
+ return'<div class="mc '+c.t+(o.cls?' '+o.cls:'')+'" style="--w:'+w+'px">'+(o.sv?'<div class="sv'+(o.c?' c':'')+'"><small>'+o.sv[0]+'</small><b>'+o.sv[1]+'</b></div>':'')+(tag?'<div class="tag">'+tag+'</div>':'')+'<div class="in"><div class="ini">'+c.first[0]+c.last[0]+'</div><div class="ph'+(c.tall?' tall':'')+'"'+(c.img?' style="background-image:url('+c.img+')"':'')+'></div><div class="sh"></div><div class="ov">'+c.o+'</div><div class="ps">'+c.pos+'</div><div class="nm">'+c.last+'</div></div></div>'}
 /* ---------- auto pick ---------- */
 function autoPick(avail,order){var out=[null,null,null,null,null,null,null],left=avail.slice();
  function take(slot,pos){var best=null;left.forEach(function(c){if(pos&&c.pos!==pos)return;if(!best||c.o>best.o)best=c});
@@ -177,100 +172,73 @@ $("shClose").onclick=closeSheet;$("sheet").onclick=function(e){if(e.target===$("
 $("auto").onclick=function(){me=autoPick(POOL);drawLine()};
 
 /* ---------- match engine ---------- */
-var STATS4=["Kicking","Handball","Marking","Tackling"];
+var POS={RUC:["Kicking","Tackling","Hit-out","Contested"],MID:["Kicking","Tackling","Clearance","Contested"],DEF:["Kicking","Tackling","Spoil","Rebound"],FWD:["Kicking","Tackling","Forward mark","Accuracy"]};
+var LINES=[{pos:"RUC",name:"RUCK",slots:[3]},{pos:"MID",name:"MIDFIELD",slots:[2,4]},{pos:"DEF",name:"DEFENCE",slots:[5,6]},{pos:"FWD",name:"FORWARD LINE",slots:[0,1]}];
+var QT=["QUARTER TIME","HALF TIME","THREE QUARTER TIME","FULL TIME"];
+var SHORT={"Forward mark":"Mark","Hit-out":"Hit-out"};
 function nx(a,b){return Math.max(-1,Math.min(1,(a-b)/(a+b)*4))}
 function gauss(){var u=1-Math.random(),v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
 function gamma4(th){var s=0;for(var i=0;i<4;i++)s+=-Math.log(1-Math.random());return s*th}
 function poisson(l){var L=Math.exp(-l),k=0,p=1;do{k++;p*=Math.random()}while(p>L);return k-1}
 function sv(c,k){return c.s[S[k]]}
 function pts(t){return t.g*6+t.b}
-function sum(a,f){return a.reduce(function(s,x){return s+f(x)},0)}
 function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
 var G,tok=0;
-function newGame(){tok++;G={q:0,me:{g:0,b:0},cpu:{g:0,b:0},scorers:{me:{},cpu:{}},themes:shuf(STATS4).slice(0,3),pl:[[],[],[]],sel:null,cp:null,phase:"",Q:{},qs:[]}}
+function newGame(){tok++;G={q:0,me:{g:0,b:0},cpu:{g:0,b:0},scorers:{me:{},cpu:{}},phase:"",Q:{}}}
 function later(ms,fn){var t=tok;setTimeout(function(){if(t===tok)fn()},ms)}
 function scoreboard(){$("sMe").textContent=G.me.g+"."+G.me.b;$("sMeT").textContent=pts(G.me);$("sCpu").textContent=G.cpu.g+"."+G.cpu.b;$("sCpuT").textContent=pts(G.cpu);$("qb").textContent=G.done?"FT":(G.q?"Q"+G.q:"START")}
 function buttons(label){var b=$("go"),bar=b.parentNode;if(label===null){bar.classList.add("hide");return}bar.classList.remove("hide");b.textContent=label;b.disabled=false}
 function banner(h,s){var e=$("ban");if(e)e.innerHTML=h+(s?'<small>'+s+'</small>':"")}
+function pips(r,n){var a=r.slice();while(a.length<n)a.push("");$("pips").innerHTML=a.map(function(x){return'<i class="'+(x||"")+'"></i>'}).join("")}
 function apply(e,qo){var t=G[e.side],s=G.scorers[e.side];if(e.goal){t.g++;qo[e.side].g++}else{t.b++;qo[e.side].b++}
  var o=s[e.c.last]||(s[e.c.last]={g:0,b:0,c:e.c});if(e.goal)o.g++;else o.b++;scoreboard()}
-/* ---------- placement ---------- */
-function cpuPlace(){var pool=cpu.slice(),sizes=shuf([3,2,2]),out=[[],[],[]];
- shuf([0,1,2]).forEach(function(si){var k=G.themes[si],r=pool.map(function(c){return{c:c,v:sv(c,k)+gauss()*10}}).sort(function(x,y){return y.v-x.v});
-  for(var n=0;n<sizes[si];n++){var x=r[n].c;out[si].push(x);pool.splice(pool.indexOf(x),1)}});return out}
+function cpuPick(opts,k){var best=opts.slice().sort(function(a,b){return sv(b,k)-sv(a,k)})[0];return Math.random()<.72?best:opts[Math.floor(Math.random()*opts.length)]}
+function lineOf(team,ln){return ln.slots.map(function(i){return team[i]})}
+function shoot(team,gap,side){var mean=Math.max(.8,6.2*(1+.8*gap))*Math.exp(gauss()*.3),n=poisson(gamma4(mean/4)),ev=[];
+ var w=team.map(function(c,i){return Math.pow(c.s[S["Scoring"]],2)*LINEW[i]}),tot=w.reduce(function(a,b){return a+b},0);
+ for(var k=0;k<n;k++){var r=Math.random()*tot,i=0;while(i<6&&r>w[i]){r-=w[i];i++}
+  var p=Math.max(.15,Math.min(.8,.32+.30*(team[i].s[S["Accuracy"]]-35)/64+gauss()*.07));ev.push({side:side,c:team[i],goal:Math.random()<p})}
+ return ev}
+function frame(){$("stage").innerHTML='<div class="ttl" id="ttl"></div><div class="opp" id="opp"></div><div><div class="pips" id="pips"></div><div class="ban" id="ban"></div></div><div class="mine" id="mine"></div>'}
+/* ---------- start ---------- */
 function startMatch(){if(me.filter(Boolean).length<7)me=autoPick(POOL);
- cpu=autoPick(POOL.filter(function(c){return me.indexOf(c)<0}));newGame();scoreboard();show("sMatch");drawPlace()}
-function placedAll(){return[].concat.apply([],G.pl)}
-function drawPlace(){var pl=placedAll(),hand=me.filter(function(c){return pl.indexOf(c)<0});G.phase="place";
- var h='<div class="ttl">PLACE YOUR 7 · THEY CAN\'T SEE</div><div style="width:100%;display:grid;gap:7px">'+G.pl.map(function(arr,i){var k=G.themes[i];
-  return'<div class="sq" data-sq="'+i+'"><div class="sqh"><span><b>Q'+(i+1)+'</b> '+k.toUpperCase()+'</span><span>'+(arr.length?"TOTAL "+sum(arr,function(c){return sv(c,k)}):"")+'</span></div><div class="sqc">'
-  +arr.map(function(c){return'<button class="pc" data-id="'+me.indexOf(c)+'">'+card(c,84,"",{sv:[k,sv(c,k)]})+'</button>'}).join("")
-  +Array(3-arr.length+1).join('<i class="slot0"></i>')+'</div></div>'}).join("")+'</div>'
-  +'<div class="hand">'+hand.map(function(c){return'<button class="hc'+(G.sel===c?" sel":"")+'" data-id="'+me.indexOf(c)+'">'+card(c,48)+'</button>'}).join("")+'</div>';
- $("stage").innerHTML=h;buttons(hand.length?"AUTO-PLACE REST":"LOCK IN ▶")}
-$("stage").onclick=function(e){if(G.phase!=="place")return;var t=e.target,pc=t.closest(".pc"),hc=t.closest(".hc"),sq=t.closest(".sq");
- if(pc){var c=me[+pc.dataset.id];G.pl.forEach(function(a){var i=a.indexOf(c);if(i>=0)a.splice(i,1)});G.sel=null;drawPlace()}
- else if(hc){var c2=me[+hc.dataset.id];G.sel=G.sel===c2?null:c2;drawPlace()}
- else if(sq&&G.sel){var a=G.pl[+sq.dataset.sq];if(a.length<3){a.push(G.sel);G.sel=null;drawPlace()}}};
-function autoRest(){var hand=me.filter(function(c){return placedAll().indexOf(c)<0});
- while(hand.length){var best=null;hand.forEach(function(c){G.pl.forEach(function(a,i){if(a.length<3){var v=sv(c,G.themes[i]);if(!best||v>best.v)best={c:c,i:i,v:v}}})});
-  G.pl[best.i].push(best.c);hand.splice(hand.indexOf(best.c),1)}G.sel=null;drawPlace()}
-/* ---------- reveal a square (Q1-Q3) ---------- */
-function reveal(i){G.q=i+1;G.si=i;scoreboard();var k=G.themes[i],mc=G.pl[i],cc=G.cp[i];
- $("stage").innerHTML='<div class="ttl">QUARTER '+G.q+' · '+k.toUpperCase()+'</div><div class="rv" id="cr">'+cc.map(function(c){return card(c,100,"",{cls:"back"})}).join("")+'</div><div class="ban" id="ban">Your total '+sum(mc,function(c){return sv(c,k)})+'<small>Tap to reveal theirs</small></div><div class="rv" id="mr">'+mc.map(function(c){return card(c,100,"",{sv:[k,sv(c,k)]})}).join("")+'</div>';
- buttons("REVEAL ▶");G.phase="rev"}
-function doReveal(){G.phase="";buttons(null);var i=G.si,k=G.themes[i],mc=G.pl[i],cc=G.cp[i];
- var rm=sum(mc,function(c){return sv(c,k)}),rc=sum(cc,function(c){return sv(c,k)}),sm=1+(Math.random()-.5)*.2,sc=1+(Math.random()-.5)*.2,mt=Math.round(rm*sm),ct=Math.round(rc*sc);
- var win=mt>ct?"me":mt<ct?"cpu":(Math.random()<.5?"me":"cpu");
- cc.forEach(function(c,n){later(450*(n+1),function(){var el=$("cr").children[n];if(el)el.outerHTML=card(c,100,"",{sv:[k,sv(c,k)],c:true,cls:"flip"})})});
- later(450*(cc.length+1),function(){
-  var wcls=win==="me"?"win":"lose";[].forEach.call($("mr").children,function(x){x.classList.add(wcls)});
-  banner((win==="me"?"YOU WIN Q"+G.q:"THEY WIN Q"+G.q),mt+" v "+ct+" (incl. momentum "+(sm>=1?"+":"")+Math.round((sm-1)*100)+"% / "+(sc>=1?"+":"")+Math.round((sc-1)*100)+"%)");
-  later(1100,function(){var qo=quarter(i,mt,ct,win);banner((win==="me"?"YOU WIN Q"+G.q:"THEY WIN Q"+G.q),"Quarter score "+qo.me.g+"."+qo.me.b+" – "+qo.cpu.g+"."+qo.cpu.b);G.qs.push({w:win});
-   buttons(G.q<3?"QUARTER "+(G.q+1)+" ▶":"FINAL QUARTER ▶");G.phase="next"})})}
-function shootSq(cards,gap,side){var mean=Math.max(.8,6.2*(1+.8*gap))*Math.exp(gauss()*.3),n=poisson(gamma4(mean/4)),ev=[];if(!cards.length)return ev;
- var w=cards.map(function(c){return Math.pow(sv(c,"Scoring"),2)}),tot=sum(w,function(x){return x});
- for(var k=0;k<n;k++){var r=Math.random()*tot,i=0;while(i<cards.length-1&&r>w[i]){r-=w[i];i++}
-  var p=Math.max(.15,Math.min(.8,.32+.30*(sv(cards[i],"Accuracy")-35)/64+gauss()*.07));ev.push({side:side,c:cards[i],goal:Math.random()<p})}return ev}
-function quarter(i,mt,ct,win){var g=nx(mt,ct),qo,tries=0,ev;
- do{ev=shootSq(G.pl[i],g,"me").concat(shootSq(G.cp[i],-g,"cpu"));qo={me:{g:0,b:0},cpu:{g:0,b:0}};ev.forEach(function(e){var t=qo[e.side];if(e.goal)t.g++;else t.b++});tries++}
- while(tries<40&&(win==="me"?pts(qo.me)<=pts(qo.cpu):pts(qo.cpu)<=pts(qo.me)));
- var q2={me:{g:0,b:0},cpu:{g:0,b:0}};ev.forEach(function(e){apply(e,q2)});
- if(pts(q2[win])<=pts(q2[win==="me"?"cpu":"me"])){apply({side:win,c:(win==="me"?G.pl[i]:G.cp[i])[0]||me[0],goal:false},q2)}
- return q2}
-/* ---------- Q4: ruck meter + goal kicks ---------- */
-function startQ4(){G.q=4;scoreboard();G.Q={};ruckRound()}
-function ruckRound(){var Q=G.Q,mr=me[3],cr=cpu[3];
- $("stage").innerHTML='<div class="ttl">QUARTER 4 · RUCK CONTEST</div><div class="opp" id="opp"></div><div style="width:100%"><div class="ban" id="ban"></div><div class="meter"><i id="mk"></i></div></div><div class="mine" id="mine"></div>';
- $("opp").innerHTML=card(cr,176,"",{cls:"back"});$("mine").innerHTML=card(mr,150);
- banner("TAP TO STOP THE METER","Winner gets 5 shots, loser 3");buttons("TAP!");G.phase="tap";
- var P=700+(mr.o-40)*14,t0=performance.now()-Math.random()*P,t=tok;G.mv=0;
- (function step(){if(G.phase!=="tap"||t!==tok)return;var ph=((performance.now()-t0)%P)/P,v=ph<.5?ph*2:(1-ph)*2;G.mv=v*100;var m=$("mk");if(m)m.style.left=G.mv+"%";requestAnimationFrame(step)})()}
-function stopMeter(){G.phase="";var Q=G.Q,mv=Math.round(G.mv),cr=cpu[3],ov=Math.round(Math.max(15,Math.min(99,35+(cr.o-40)*.55+gauss()*14)));
- var win=mv>ov?"m":mv<ov?"c":(Math.random()<.5?"m":"c");buttons(null);
- $("opp").innerHTML=card(cr,176,"",{sv:["RUCK",ov],c:true,cls:"flip"+(win==="c"?" cwin":"")});
- var d=pts(G.me)-pts(G.cpu);Q.my=win==="m"?5:3;Q.cp=win==="m"?3:5;if(d<-30)Q.my++;else if(d>30)Q.cp++;
- banner(win==="m"?"YOU WIN THE BALL":"THEY WIN THE BALL",mv+" v "+ov+"<br>"+Q.my+" shots for you · "+Q.cp+" for them");
- Q.qo={me:{g:0,b:0},cpu:{g:0,b:0}};Q.n=0;later(2200,kickShot)}
-function kicker(team){var w=team.map(function(c,i){return Math.pow(sv(c,"Scoring"),2)*LINEW[i]}),tot=sum(w,function(x){return x}),r=Math.random()*tot,i=0;while(i<6&&r>w[i]){r-=w[i];i++}return team[i]}
-function kickShot(){var Q=G.Q;if(Q.n>=Q.my)return cpuShots();Q.n++;var c=kicker(me),acc=sv(c,"Accuracy"),w=12+acc/99*28,ctr=28+Math.random()*44;Q.c=c;Q.w=w;Q.ctr=ctr;
- $("stage").innerHTML='<div class="ttl">QUARTER 4 · SET SHOT '+Q.n+' OF '+Q.my+'</div><div class="opp" id="opp">'+card(c,170,"",{sv:["ACCURACY",acc]})+'</div><div style="width:100%"><div class="ban" id="ban">STOP IT IN THE GOLD<small>Better accuracy = wider zone</small></div><div class="meter"><b class="zone" style="left:'+(ctr-w/2)+'%;width:'+w+'%"></b><i id="mk"></i></div></div><div></div>';
- buttons("KICK!");G.phase="kick";var P=1000,t0=performance.now(),t=tok;G.mv=0;
- (function step(){if(G.phase!=="kick"||t!==tok)return;var ph=((performance.now()-t0)%P)/P,v=ph<.5?ph*2:(1-ph)*2;G.mv=v*100;var m=$("mk");if(m)m.style.left=G.mv+"%";requestAnimationFrame(step)})()}
-function stopKick(){G.phase="";buttons(null);var Q=G.Q,d=Math.abs(G.mv-Q.ctr),r=d<=Q.w/2?"goal":d<=Q.w/2+9?"behind":"miss";
- if(r!=="miss")apply({side:"me",c:Q.c,goal:r==="goal"},Q.qo);
- banner(r==="goal"?"<span style='color:var(--gold);font-size:34px'>GOAL!</span>":r==="behind"?"BEHIND":"MISSED IT",Q.qo.me.g+"."+Q.qo.me.b+" this quarter");later(1200,kickShot)}
-function cpuShots(){var Q=G.Q,lines=[];for(var n=0;n<Q.cp;n++){var c=kicker(cpu),a=sv(c,"Accuracy"),r=Math.random(),goal=r<.3+.35*a/99,behind=!goal&&r<.3+.35*a/99+.25;
-  if(goal||behind){apply({side:"cpu",c:c,goal:goal},Q.qo)}lines.push('<div class="'+(goal?"c":"")+'"><span>'+c.last+'</span><b>'+(goal?"GOAL":behind?"behind":"miss")+'</b></div>')}
- $("stage").innerHTML='<div class="ttl">THEIR '+Q.cp+' SHOTS</div><div class="log" style="width:100%">'+lines.join("")+'</div><div class="ban" id="ban">Q4: '+Q.qo.me.g+"."+Q.qo.me.b+' – '+Q.qo.cpu.g+"."+Q.qo.cpu.b+'<small>Full time next</small></div><div></div>';
- buttons("FULL TIME ▶");G.phase="end"}
+ cpu=autoPick(POOL.filter(function(c){return me.indexOf(c)<0}));newGame();scoreboard();show("sMatch");
+ $("stage").innerHTML='<div class="ttl">FOUR QUARTERS</div><div class="qs" style="width:100%">'+LINES.map(function(l,i){return'<div class="l"><span>Q'+(i+1)+'</span><b>'+l.name+'</b></div>'}).join("")+'</div><div class="ban">Each quarter: 2 random stats, you pick the card<small>Bigger wins mean a bigger quarter score</small></div><div></div>';
+ G.phase="start";buttons("FIRST BOUNCE ▶")}
+/* ---------- one quarter ---------- */
+function startQuarter(){G.q++;var ln=LINES[G.q-1];G.Q={ln:ln,stats:shuf(POS[ln.pos]).slice(0,2),res:[],my:lineOf(me,ln),cp:lineOf(cpu,ln)};scoreboard();frame();buttons(null);round(0)}
+function round(r){var Q=G.Q;if(r>=2)return quarterDone();var k=Q.stats[r],n=Q.my.length,w=n===1?170:150,ln=Q.ln;
+ $("ttl").textContent="QUARTER "+G.q+" · "+ln.name;pips(Q.res.map(function(x){return x.w}),2);
+ banner((n===1?"PLAY YOUR RUCK FOR ":"PICK A "+ln.pos+" FOR ")+'<span style="color:var(--gold)">'+(SHORT[k]||k).toUpperCase()+'</span>',"Round "+(r+1)+" of 2");
+ $("opp").innerHTML=card(Q.cp[0],176,"",{cls:"back"});
+ $("mine").innerHTML=Q.my.map(function(c,i){return'<button data-i="'+i+'">'+card(c,w,"",{sv:[SHORT[k]||k,sv(c,k)]})+'</button>'}).join("");
+ [].forEach.call($("mine").querySelectorAll("button"),function(b){b.onclick=function(){
+  var c=Q.my[+b.dataset.i];[].forEach.call($("mine").querySelectorAll("button"),function(x){x.classList.add("lock")});
+  var oc=cpuPick(Q.cp,k),mv=sv(c,k),ov=sv(oc,k),win=mv>ov?"m":mv<ov?"c":(Math.random()<.5?"m":"c");
+  $("opp").innerHTML=card(oc,176,"",{sv:[SHORT[k]||k,ov],c:true,cls:"flip"+(win==="c"?" cwin":"")});
+  b.querySelector(".mc").classList.add(win==="m"?"win":"lose");
+  [].forEach.call($("mine").querySelectorAll("button"),function(x){if(x!==b)x.style.opacity=".35"});
+  Q.res.push({w:win,x:nx(mv,ov)});pips(Q.res.map(function(x){return x.w}),2);
+  banner(win==="m"?"YOU WIN IT":"THEY WIN IT",mv+"  v  "+ov);later(1500,function(){round(r+1)})}})}
+function quarterDone(){var Q=G.Q,wins=Q.res.filter(function(x){return x.w==="m"}).length,x=(Q.res[0].x+Q.res[1].x)/2;
+ var g=Math.max(-1,Math.min(1,x*1.3));
+ if(G.q===4){var m=pts(G.me)-pts(G.cpu);if(m<-30)g+=.25;else if(m>30)g-=.15}
+ var win=wins>1?"me":wins<1?"cpu":(x>0?"me":x<0?"cpu":(Math.random()<.5?"me":"cpu")),upset=Math.random()<.12,tries=0,ev,qo;
+ do{ev=shoot(me,g,"me").concat(shoot(cpu,-g,"cpu"));qo={me:{g:0,b:0},cpu:{g:0,b:0}};ev.forEach(function(e){var t=qo[e.side];if(e.goal)t.g++;else t.b++});tries++}
+ while(!upset&&tries<60&&(win==="me"?pts(qo.me)<=pts(qo.cpu):pts(qo.cpu)<=pts(qo.me)));
+ Q.ev=shuf(ev);Q.qo={me:{g:0,b:0},cpu:{g:0,b:0}};Q.i=0;scoring()}
+function scoring(){var Q=G.Q;$("stage").innerHTML='<div class="ttl">'+QT[G.q-1]+'</div><div class="pop" id="pop"></div><div class="log" id="log"></div><div></div>';buttons("SKIP ▶");G.phase="skip";tick()}
+function tick(){var Q=G.Q;if(G.phase!=="skip")return;if(Q.i>=Q.ev.length){return summary()}
+ var e=Q.ev[Q.i++];apply(e,Q.qo);var m=e.side==="me";
+ $("pop").innerHTML=card(e.c,170,"",{cls:"flip"})+'<div class="tx '+(e.goal?(m?"g":"cg"):"b")+'">'+(e.goal?"GOAL!":"BEHIND")+'</div>';
+ var l=document.createElement("div");l.className=m?"m":"c";l.innerHTML='<span>'+e.c.last+(e.goal?' goal':' behind')+'</span><b>'+pts(G.me)+' – '+pts(G.cpu)+'</b>';var lg=$("log");lg.insertBefore(l,lg.firstChild);while(lg.children.length>3)lg.removeChild(lg.lastChild);
+ later(560,tick)}
+function summary(){var Q=G.Q;G.phase="next";var last=G.q>=4,a=pts(G.me),b=pts(G.cpu);
+ $("stage").innerHTML='<div class="ttl">'+QT[G.q-1]+'</div><div class="big">'+Q.qo.me.g+'.'+Q.qo.me.b+' <span style="opacity:.5;font-size:24px">v</span> '+Q.qo.cpu.g+'.'+Q.qo.cpu.b+'</div><div class="ttl">THIS QUARTER</div><div class="qs"><div class="l m"><span>YOUR TEAM</span><b>'+G.me.g+'.'+G.me.b+' ('+a+')</b></div><div class="l c"><span>CHALLENGERS</span><b>'+G.cpu.g+'.'+G.cpu.b+' ('+b+')</b></div></div><div class="ttl">'+(a>b?"YOU LEAD BY "+(a-b):a<b?"YOU TRAIL BY "+(b-a):"ALL SQUARE")+'</div><div></div>';
+ buttons(last?"FULL TIME ▶":"QUARTER "+(G.q+1)+" · "+LINES[G.q].name+" ▶")}
 $("go").onclick=function(){var p=G.phase;
- if(p==="place"){if(placedAll().length<7)autoRest();else{G.cp=cpuPlace();reveal(0)}}
- else if(p==="rev")doReveal();
- else if(p==="next"){if(G.q<3)reveal(G.q);else startQ4()}
- else if(p==="tap")stopMeter();
- else if(p==="kick")stopKick();
- else if(p==="end"){G.done=true;scoreboard();finish()}};
+ if(p==="start"||p==="next"){if(p==="next"&&G.q>=4){G.done=true;scoreboard();finish()}else{G.phase="";startQuarter()}}
+ else if(p==="skip"){var Q=G.Q;G.phase="";while(Q.i<Q.ev.length)apply(Q.ev[Q.i++],Q.qo);summary()}};
 $("play").onclick=startMatch;
 function finish(){var a=pts(G.me),b=pts(G.cpu),res=a>b?"WIN":a<b?"LOSS":"DRAW",st=0;
  try{st=+localStorage.getItem("afl_streak")||0;st=res==="WIN"?st+1:res==="LOSS"?0:st;localStorage.setItem("afl_streak",st)}catch(e){}
