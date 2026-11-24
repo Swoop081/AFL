@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#07090d">
+<meta name="theme-color" content="#ffe600">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <title>AFL SuperCard</title>
 <style>
 :root{--gold:#FFD200;--blue:#4aa3ff;--bg:#07090d}
@@ -136,11 +138,99 @@ h1,h2,h3,p{margin:0}
 .meter{position:relative;height:34px;width:92%;margin:8px auto 0;border-radius:17px;background:linear-gradient(90deg,#4a1f1f,#4a4a1f,#1f4a2b);border:2px solid rgba(255,255,255,.2)}
 .meter i{position:absolute;top:-6px;bottom:-6px;width:8px;border-radius:4px;background:var(--gold);box-shadow:0 0 12px var(--gold);left:0;transform:translateX(-50%)}
 </style>
+<style>
+/* ===== DIRECTION C · POSTER / STREET ===== */
+:root{--gold:#ffe600;--blue:#ff2bb0;--cy:#00e5ff;--pk:#ff2bb0;--bg:#ffe600;--ht:radial-gradient(circle,rgba(0,0,0,.2) 1.6px,transparent 2px) 0 0/10px 10px;--AN:'Anton',Impact,'Arial Narrow',sans-serif}
+html,body{background:#ffe600;font-family:'Space Grotesk',system-ui,sans-serif}
+#app{background:#ffe600}
+.screen>*:not(.sheet){position:relative;z-index:1}
+.screen::before,.screen::after{content:"";position:absolute;pointer-events:none;z-index:0}
+#sLine::before{left:0;right:0;top:34px;bottom:0;background:var(--ht),#00e5ff;clip-path:polygon(0 9%,100% 0,100% 100%,0 100%)}
+#sMatch::before{left:0;right:0;top:92px;bottom:0;background:var(--ht),#ff2bb0}
+#sMatch::after{left:0;right:0;top:49%;bottom:0;background:var(--ht),#00e5ff;clip-path:polygon(0 0,100% 44px,100% 100%,0 100%)}
+#sRes::before{inset:0;background:repeating-conic-gradient(from 0deg at 50% 38%,#fff 0 8deg,transparent 8deg 20deg),#ffe600;opacity:.9}
+#sRes::after{inset:0;background:var(--ht)}
+.top{text-align:left;padding:18px 20px 0}
+.top h1{font-family:var(--AN);font-size:58px;letter-spacing:.02em;line-height:1;opacity:1;color:#ffe600;-webkit-text-stroke:3px #000;paint-order:stroke fill;text-shadow:5px 5px 0 #000;transform:rotate(-3deg);transform-origin:0 100%;font-weight:400;text-transform:uppercase}
+.top p{font-size:13px;font-weight:700;opacity:1;color:#000;margin-top:8px}
+.bar-btns{padding:8px 22px 20px;gap:14px}
+.btn{height:66px;border:5px solid #000;border-radius:0;background:#fff;color:#000;font-family:var(--AN);font-weight:400;font-size:32px;letter-spacing:.05em;box-shadow:7px 7px 0 #000;transform:rotate(-1.2deg);transition:transform .08s,box-shadow .08s}
+.btn.main{background:#ffe600;box-shadow:7px 7px 0 #000;color:#000}
+.btn:active{transform:translate(5px,5px) rotate(-1.2deg);box-shadow:2px 2px 0 #000}
+.cap{font-family:var(--AN);font-weight:400;font-size:17px;letter-spacing:.08em;opacity:1;color:#fff;-webkit-text-stroke:2px #000;paint-order:stroke fill;text-shadow:3px 3px 0 #000;margin-bottom:8px}
+.slot .tag{background:#ff2bb0;color:#fff;border:2px solid #000;border-radius:0;font-family:var(--AN);font-size:12px;font-weight:400;padding:1px 6px;right:-6px;top:-8px}
+.rowc{gap:14px}
+.rowc .slot:nth-child(odd) .mc{rotate:-1.6deg}.rowc .slot:nth-child(even) .mc{rotate:1.6deg}
+/* cards */
+.mc{border-radius:7px;padding:calc(var(--w,90px)*.022);background:#000;box-shadow:0 0 0 calc(var(--w,90px)*.012) #fff,calc(var(--w,90px)*.04) calc(var(--w,90px)*.04) 0 calc(var(--w,90px)*.012) #000}
+.mc .in{border-radius:4px}
+.mc .sh{background:var(--ht),linear-gradient(to bottom,rgba(0,0,0,.3),transparent 28%,transparent 52%,rgba(0,0,0,.92))}
+.mc .nm{font-family:var(--AN);font-weight:400;font-style:normal;color:#fff;font-size:calc(var(--w,90px)*.19);letter-spacing:.02em;bottom:calc(var(--w,90px)*.02);-webkit-text-stroke:calc(var(--w,90px)*.014) #000;paint-order:stroke fill;text-shadow:calc(var(--w,90px)*.022) calc(var(--w,90px)*.022) 0 #000}
+.dv{background:linear-gradient(160deg,#fff,#fff 40%,#cfcfcf)}
+.dv.ov{background:linear-gradient(160deg,#fff97a,#ffe600 55%,#d8b800)}
+.dv i{background:#000;font-family:var(--AN)}
+.dv i b{font-weight:400;font-style:normal;letter-spacing:.01em}.dv i small{font-family:'Space Grotesk',sans-serif;font-weight:700}
+.dv.on{background:linear-gradient(160deg,#fff,#ffe600 50%,#d8b800);filter:drop-shadow(0 0 8px #ffe600)}
+.dv.on i{background:#ffe600}.dv.on i b{color:#000}
+.dv.on.bl{background:linear-gradient(160deg,#fff,#ff7cd0 50%,#c4007f);filter:drop-shadow(0 0 8px #ff2bb0)}.dv.on.bl i{background:#ff2bb0}.dv.on.bl i b{color:#fff}
+.mc .ov,.mc .ps{font-family:var(--AN);font-weight:400;font-style:normal}
+.mc.win{box-shadow:0 0 0 calc(var(--w,90px)*.03) #ffe600,0 0 0 calc(var(--w,90px)*.05) #000,0 0 34px #ffe600;transform:translateY(-8px) scale(1.04)}
+.mc.cwin{box-shadow:0 0 0 calc(var(--w,90px)*.03) #ff2bb0,0 0 0 calc(var(--w,90px)*.05) #000,0 0 34px #ff2bb0;transform:translateY(-8px) scale(1.04)}
+.mc.lose{opacity:.7;filter:grayscale(.7) brightness(.8)}
+.mc.back .in{background:repeating-linear-gradient(45deg,#101a3a 0 12px,#0b1230 12px 24px)}
+.mc.back .in::after{color:#ffe600;font-family:var(--AN);font-weight:400;-webkit-text-stroke:3px #000;paint-order:stroke fill;text-shadow:4px 4px 0 #000}
+.mc.back{--c1:#fff;--c2:#fff}
+.mine{gap:12px}
+.mine button:nth-child(odd) .mc{rotate:-2deg}.mine button:nth-child(even) .mc{rotate:2deg}
+.sv small{font-family:'Space Grotesk',sans-serif}.sv b{font-family:var(--AN);font-weight:400;color:#ffe600;-webkit-text-stroke:2px #000;paint-order:stroke fill}
+/* scoreboard strip */
+.sb{display:grid;grid-template-columns:1fr 64px 1fr;gap:0;padding:16px 14px 0;align-items:stretch}
+.tm{position:relative;height:64px;border:4px solid #000;color:#000;padding:0 10px;display:flex;align-items:center}
+.tm.me{background:#00e5ff;justify-content:flex-end}.tm.cpu{background:#ff2bb0;justify-content:flex-start}
+.tm small{position:absolute;top:2px;left:6px;font-size:9px;letter-spacing:.12em;font-weight:700;opacity:1;color:#000!important}
+.tm.cpu small{left:auto;right:6px}
+.tm b{font-family:var(--AN);font-weight:400;font-size:36px;line-height:1}
+.tm span{position:absolute;bottom:2px;left:6px;font-size:11px;font-weight:700;opacity:1}
+.tm.cpu span{left:auto;right:6px}
+.qb{background:#000;color:#ffe600;border-radius:0;font-family:var(--AN);font-weight:400;font-size:28px;display:grid;place-items:center;padding:0;letter-spacing:.02em}
+/* stage */
+.ttl{font-family:var(--AN);font-weight:400;font-size:24px;letter-spacing:.05em;opacity:1;color:#fff;-webkit-text-stroke:2.5px #000;paint-order:stroke fill;text-shadow:3px 3px 0 #000;text-transform:uppercase}
+.ban{background:#ffe600;color:#000;border:4px solid #000;box-shadow:5px 5px 0 #000;transform:rotate(-2deg);font-family:var(--AN);font-weight:400;font-size:26px;letter-spacing:.03em;min-height:0;padding:6px 16px;width:max-content;max-width:96%;margin:4px auto 0;text-transform:uppercase}
+.ban:empty{display:none}.ban span{color:#ff2bb0!important;-webkit-text-stroke:1.5px #000;paint-order:stroke fill}
+.ban small{font-family:'Space Grotesk',sans-serif;font-weight:700;opacity:1;font-size:12px;letter-spacing:.06em}
+.pips{margin-bottom:8px;gap:14px}.pips i{width:20px;height:20px;border-radius:0;background:#fff;border:3px solid #000;transform:rotate(45deg);box-shadow:none}
+.pips i.m{background:#ffe600;box-shadow:none}.pips i.c{background:#ff2bb0;box-shadow:none}
+.pop .tx{left:0;right:0;margin:auto;width:max-content;height:max-content;top:36%;rotate:-6deg;font-family:var(--AN);font-weight:400;font-style:normal;font-size:62px;color:#fff;padding:20px 44px;-webkit-text-stroke:3px #000;paint-order:stroke fill;text-shadow:5px 5px 0 #000;clip-path:polygon(0 8%,10% 0,22% 10%,34% 0,48% 9%,62% 0,76% 10%,90% 0,100% 8%,95% 50%,100% 92%,86% 100%,72% 90%,58% 100%,44% 91%,30% 100%,16% 90%,4% 100%,8% 50%)}
+.pop .tx.g{background:#ffe600;color:#fff}.pop .tx.cg{background:#ff2bb0;color:#fff}.pop .tx.b{background:#fff;color:#000;font-size:36px;-webkit-text-stroke:0;text-shadow:none;padding:16px 40px}
+.log div{background:#fff;color:#000;border:3px solid #000;border-radius:0;box-shadow:3px 3px 0 #000;font-weight:700}
+.log .m b{background:#ffe600;padding:0 6px;color:#000}.log .c b{background:#ff2bb0;color:#fff;padding:0 6px}
+.qs .l{background:#fff;color:#000;border:4px solid #000;border-radius:0;box-shadow:4px 4px 0 #000;font-weight:700;font-family:'Space Grotesk',sans-serif}
+.qs .l b{font-family:var(--AN);font-weight:400;font-size:20px;letter-spacing:.03em}
+.qs .l.m b{background:#ffe600;padding:0 8px;color:#000}.qs .l.c b{background:#ff2bb0;color:#fff;padding:0 8px}
+.big{display:flex;align-items:baseline;justify-content:center;gap:10px;font-family:var(--AN);font-weight:400;line-height:1;rotate:-3deg;font-size:96px}
+.big .bm{color:#ffe600}.big .bc{color:#fff}.big .bv{font-size:32px;color:#000}
+.big .bm,.big .bc{-webkit-text-stroke:4px #000;paint-order:stroke fill;text-shadow:6px 6px 0 #000}
+/* result */
+.res h2{font-family:var(--AN);font-weight:400;font-style:normal;font-size:130px;line-height:1;letter-spacing:.02em;-webkit-text-stroke:5px #000;paint-order:stroke fill;text-shadow:8px 8px 0 #000;rotate:-4deg}
+.res .sc{font-family:var(--AN);font-weight:400;font-size:32px;color:#000;letter-spacing:.03em}.res .sc span{font-family:'Space Grotesk',sans-serif;font-weight:700;opacity:1;font-size:14px}
+.pill{background:#000;color:#ffe600;border-radius:0;font-family:var(--AN);font-weight:400;font-size:18px;letter-spacing:.05em;padding:5px 14px}
+/* picker sheet */
+.sheet .box{background:#ffe600;border:5px solid #000;border-bottom:0;border-radius:0;box-shadow:0 -8px 0 #000}
+.sheet h3{font-family:var(--AN);font-weight:400;font-size:22px;letter-spacing:.06em;opacity:1;color:#000}
+.pr{background:#fff;color:#000;border:3px solid #000;border-radius:0;box-shadow:4px 4px 0 #000}
+.pr b{font-family:var(--AN);font-weight:400;font-size:20px;letter-spacing:.03em}.pr small{opacity:.7;font-weight:700}.pr .o{font-family:var(--AN);font-weight:400;font-style:normal;font-size:30px}
+.pr.used{opacity:.5}
+
+.diamond{--bg:radial-gradient(70% 50% at 20% 25%,#ff2bd0,transparent 70%),radial-gradient(70% 50% at 85% 30%,#18d8ff,transparent 70%),radial-gradient(80% 50% at 50% 80%,#ffd23a,transparent 70%),#140a2a}
+.top{padding-top:34px}
+.mc .nm{font-size:calc(var(--w,90px)*.17)}
+.ban{font-size:22px}
+</style>
 </head>
 <body>
 <div id="app">
  <section class="screen on" id="sLine">
-  <div class="top"><h1>Set your 7</h1><p>1 ruck, 2 mids, 2 backs, 2 forwards. Tap a card to swap.</p></div>
+  <div class="top"><h1>YOUR SEVEN</h1><p>1 ruck, 2 mids, 2 backs, 2 forwards. Tap a card to swap.</p></div>
   <div class="form" id="form"></div>
   <div class="bar-btns" style="grid-template-columns:110px 1fr"><button class="btn" id="auto">AUTO</button><button class="btn main" id="play">PLAY MATCH ▶</button></div>
   <div class="sheet" id="sheet"><div class="box"><h3 id="shTitle"></h3><div class="list" id="shList"></div><button class="btn" id="shClose">CANCEL</button></div></div>
@@ -177,7 +267,7 @@ function card(c,w,tag,o){o=o||{};if(!c)return'<div class="mc" style="--w:'+w+'px
  var big=w>=140,mid=w>=80,pic=c.img?'<div class="ph'+(c.tall?' tall':'')+(c.cut?' cut':'')+'" style="background-image:url('+c.img+')"></div>':'<div class="sil"></div><div class="sil2"></div>';
  var h='<div class="mc '+c.t+(o.cls?' '+o.cls:'')+'" style="--w:'+w+'px">'+(tag?'<div class="tag">'+tag+'</div>':'')+'<div class="in">'+pic+'<div class="sh"></div><div class="gl"></div>';
  if(!mid){h+='<div class="ov">'+c.o+'</div><div class="ps">'+c.pos+'</div>'}
- else{var os=Math.round(w*(big?.34:.4));h+=dv(os,'left:'+Math.round(w*.015)+'px;top:'+Math.round(w*.015)+'px','<b style="font-size:'+Math.round(os*.46)+'px">'+c.o+'</b>');
+ else{var os=Math.round(w*(big?.34:.4));h+=dv(os,'left:'+Math.round(w*.015)+'px;top:'+Math.round(w*.015)+'px','<b style="font-size:'+Math.round(os*.5)+'px">'+c.o+'</b>','ov');
   var ps=Math.round(w*.2);h+=dv(ps,'right:'+Math.round(w*.02)+'px;top:'+Math.round(w*.02)+'px','<b style="font-size:'+Math.round(ps*.3)+'px">'+c.pos+'</b>')}
  if(big){var st=POS[c.pos]||[],sz=Math.round(w*.215);h+='<div class="row4" style="bottom:'+Math.round(w*.19)+'px;gap:'+Math.round(w*.012)+'px">'+st.map(function(k){var on=o.act===k;
    return dv(on?Math.round(sz*1.18):sz,'position:relative',(on?'':'<small style="font-size:'+Math.max(7,Math.round(sz*.2))+'px">'+ABB[k]+'</small>')+'<b style="font-size:'+Math.round(sz*(on?.5:.36))+'px">'+c.s[S[k]]+'</b>',on?'on'+(o.c?' bl':''):'')}).join("")+'</div>'}
@@ -226,7 +316,7 @@ function apply(e,qo){var t=G[e.side],s=G.scorers[e.side];if(e.goal){t.g++;qo[e.s
  var o=s[e.c.last]||(s[e.c.last]={g:0,b:0,c:e.c});if(e.goal)o.g++;else o.b++;scoreboard()}
 function cpuPick(opts,k){var best=opts.slice().sort(function(a,b){return sv(b,k)-sv(a,k)})[0];return Math.random()<.72?best:opts[Math.floor(Math.random()*opts.length)]}
 function lineOf(team,ln){return ln.slots.map(function(i){return team[i]})}
-function shoot(team,gap,side){var mean=Math.max(.8,6.2*(1+.8*gap))*Math.exp(gauss()*.3),n=poisson(gamma4(mean/4)),ev=[];
+function shoot(team,gap,side){var mean=Math.max(.8,5.6*(1+.5*gap))*Math.exp(gauss()*.3),n=poisson(gamma4(mean/4)),ev=[];
  var w=team.map(function(c,i){return Math.pow(c.s[S["Scoring"]],2)*LINEW[i]}),tot=w.reduce(function(a,b){return a+b},0);
  for(var k=0;k<n;k++){var r=Math.random()*tot,i=0;while(i<6&&r>w[i]){r-=w[i];i++}
   var p=Math.max(.15,Math.min(.8,.32+.30*(team[i].s[S["Accuracy"]]-35)/64+gauss()*.07));ev.push({side:side,c:team[i],goal:Math.random()<p})}
@@ -266,7 +356,7 @@ function tick(){var Q=G.Q;if(G.phase!=="skip")return;if(Q.i>=Q.ev.length){return
  var l=document.createElement("div");l.className=m?"m":"c";l.innerHTML='<span>'+e.c.last+(e.goal?' goal':' behind')+'</span><b>'+pts(G.me)+' – '+pts(G.cpu)+'</b>';var lg=$("log");lg.insertBefore(l,lg.firstChild);while(lg.children.length>3)lg.removeChild(lg.lastChild);
  later(560,tick)}
 function summary(){var Q=G.Q;G.phase="next";var last=G.q>=4,a=pts(G.me),b=pts(G.cpu);
- $("stage").innerHTML='<div class="ttl">'+QT[G.q-1]+'</div><div class="big">'+Q.qo.me.g+'.'+Q.qo.me.b+' <span style="opacity:.5;font-size:24px">v</span> '+Q.qo.cpu.g+'.'+Q.qo.cpu.b+'</div><div class="ttl">THIS QUARTER</div><div class="qs"><div class="l m"><span>YOUR TEAM</span><b>'+G.me.g+'.'+G.me.b+' ('+a+')</b></div><div class="l c"><span>CHALLENGERS</span><b>'+G.cpu.g+'.'+G.cpu.b+' ('+b+')</b></div></div><div class="ttl">'+(a>b?"YOU LEAD BY "+(a-b):a<b?"YOU TRAIL BY "+(b-a):"ALL SQUARE")+'</div><div></div>';
+ $("stage").innerHTML='<div class="ttl">'+QT[G.q-1]+'</div><div class="big"><span class="bm">'+Q.qo.me.g+'.'+Q.qo.me.b+'</span><span class="bv">v</span><span class="bc">'+Q.qo.cpu.g+'.'+Q.qo.cpu.b+'</span></div><div class="ttl">THIS QUARTER</div><div class="qs"><div class="l m"><span>YOUR TEAM</span><b>'+G.me.g+'.'+G.me.b+' ('+a+')</b></div><div class="l c"><span>CHALLENGERS</span><b>'+G.cpu.g+'.'+G.cpu.b+' ('+b+')</b></div></div><div class="ttl">'+(a>b?"YOU LEAD BY "+(a-b):a<b?"YOU TRAIL BY "+(b-a):"ALL SQUARE")+'</div><div></div>';
  buttons(last?"FULL TIME ▶":"QUARTER "+(G.q+1)+" · "+LINES[G.q].name+" ▶")}
 $("go").onclick=function(){var p=G.phase;
  if(p==="start"||p==="next"){if(p==="next"&&G.q>=4){G.done=true;scoreboard();finish()}else{G.phase="";startQuarter()}}
